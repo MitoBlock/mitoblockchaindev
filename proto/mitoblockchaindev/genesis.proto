@@ -1,0 +1,14 @@
+syntax = "proto3";
+package mitoblockchaindev.mitoblockchaindev;
+
+import "gogoproto/gogo.proto";
+import "mitoblockchaindev/params.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "mitoblockchaindev/x/mitoblockchaindev/types";
+
+// GenesisState defines the mitoblockchaindev module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  // this line is used by starport scaffolding # genesis/proto/state
+}
