@@ -7,10 +7,43 @@ import { msgTypes } from './registry';
 import { IgniteClient } from "../client"
 import { MissingWalletError } from "../helpers"
 import { Api } from "./rest";
+import { MsgCreateDiscountTokenStatus } from "./types/mitoblockchaindev/tx";
+import { MsgCreateDiscountToken } from "./types/mitoblockchaindev/tx";
+import { MsgDeleteDiscountTokenStatus } from "./types/mitoblockchaindev/tx";
 
 
-export {  };
+export { MsgCreateDiscountTokenStatus, MsgCreateDiscountToken, MsgDeleteDiscountTokenStatus };
 
+type sendMsgCreateDiscountTokenStatusParams = {
+  value: MsgCreateDiscountTokenStatus,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendMsgCreateDiscountTokenParams = {
+  value: MsgCreateDiscountToken,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendMsgDeleteDiscountTokenStatusParams = {
+  value: MsgDeleteDiscountTokenStatus,
+  fee?: StdFee,
+  memo?: string
+};
+
+
+type msgCreateDiscountTokenStatusParams = {
+  value: MsgCreateDiscountTokenStatus,
+};
+
+type msgCreateDiscountTokenParams = {
+  value: MsgCreateDiscountToken,
+};
+
+type msgDeleteDiscountTokenStatusParams = {
+  value: MsgDeleteDiscountTokenStatus,
+};
 
 
 export const registry = new Registry(msgTypes);
@@ -30,6 +63,72 @@ export const txClient = ({ signer, prefix, addr }: TxClientOptions = { addr: "ht
 
   return {
 		
+		async sendMsgCreateDiscountTokenStatus({ value, fee, memo }: sendMsgCreateDiscountTokenStatusParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgCreateDiscountTokenStatus: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry, prefix});
+				let msg = this.msgCreateDiscountTokenStatus({ value: MsgCreateDiscountTokenStatus.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgCreateDiscountTokenStatus: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendMsgCreateDiscountToken({ value, fee, memo }: sendMsgCreateDiscountTokenParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgCreateDiscountToken: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry, prefix});
+				let msg = this.msgCreateDiscountToken({ value: MsgCreateDiscountToken.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgCreateDiscountToken: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendMsgDeleteDiscountTokenStatus({ value, fee, memo }: sendMsgDeleteDiscountTokenStatusParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgDeleteDiscountTokenStatus: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry, prefix});
+				let msg = this.msgDeleteDiscountTokenStatus({ value: MsgDeleteDiscountTokenStatus.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgDeleteDiscountTokenStatus: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		
+		msgCreateDiscountTokenStatus({ value }: msgCreateDiscountTokenStatusParams): EncodeObject {
+			try {
+				return { typeUrl: "/mitoblockchaindev.mitoblockchaindev.MsgCreateDiscountTokenStatus", value: MsgCreateDiscountTokenStatus.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgCreateDiscountTokenStatus: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgCreateDiscountToken({ value }: msgCreateDiscountTokenParams): EncodeObject {
+			try {
+				return { typeUrl: "/mitoblockchaindev.mitoblockchaindev.MsgCreateDiscountToken", value: MsgCreateDiscountToken.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgCreateDiscountToken: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgDeleteDiscountTokenStatus({ value }: msgDeleteDiscountTokenStatusParams): EncodeObject {
+			try {
+				return { typeUrl: "/mitoblockchaindev.mitoblockchaindev.MsgDeleteDiscountTokenStatus", value: MsgDeleteDiscountTokenStatus.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgDeleteDiscountTokenStatus: Could not create message: ' + e.message)
+			}
+		},
 		
 	}
 };
