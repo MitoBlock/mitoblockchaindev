@@ -21,3 +21,8 @@ const (
 func KeyPrefix(p string) []byte {
 	return []byte(p)
 }
+
+const (
+	DiscountTokenStatusKey      = "DiscountTokenStatus/value/"
+	DiscountTokenStatusCountKey = "DiscountTokenStatus/count/"
+)
