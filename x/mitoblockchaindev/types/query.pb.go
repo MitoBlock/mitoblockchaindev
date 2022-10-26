@@ -160,7 +160,7 @@ func (m *QueryDiscountTokensRequest) GetPagination() *query.PageRequest {
 
 type QueryDiscountTokensResponse struct {
 	// Returning a list of discount tokens
-	DiscountToken []*DiscountToken `protobuf:"bytes,1,rep,name=discountToken,proto3" json:"discountToken,omitempty"`
+	DiscountToken []*DiscountToken `protobuf:"bytes,1,rep,name=DiscountToken,proto3" json:"DiscountToken,omitempty"`
 	// Adding pagination to response
 	Pagination *query.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
@@ -212,45 +212,364 @@ func (m *QueryDiscountTokensResponse) GetPagination() *query.PageResponse {
 	return nil
 }
 
+type QueryGetDiscountTokenStatusRequest struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *QueryGetDiscountTokenStatusRequest) Reset()         { *m = QueryGetDiscountTokenStatusRequest{} }
+func (m *QueryGetDiscountTokenStatusRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetDiscountTokenStatusRequest) ProtoMessage()    {}
+func (*QueryGetDiscountTokenStatusRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9257a72cb45763f8, []int{4}
+}
+func (m *QueryGetDiscountTokenStatusRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetDiscountTokenStatusRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetDiscountTokenStatusRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetDiscountTokenStatusRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetDiscountTokenStatusRequest.Merge(m, src)
+}
+func (m *QueryGetDiscountTokenStatusRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetDiscountTokenStatusRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetDiscountTokenStatusRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetDiscountTokenStatusRequest proto.InternalMessageInfo
+
+func (m *QueryGetDiscountTokenStatusRequest) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type QueryGetDiscountTokenStatusResponse struct {
+	DiscountTokenStatus DiscountTokenStatus `protobuf:"bytes,1,opt,name=DiscountTokenStatus,proto3" json:"DiscountTokenStatus"`
+}
+
+func (m *QueryGetDiscountTokenStatusResponse) Reset()         { *m = QueryGetDiscountTokenStatusResponse{} }
+func (m *QueryGetDiscountTokenStatusResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetDiscountTokenStatusResponse) ProtoMessage()    {}
+func (*QueryGetDiscountTokenStatusResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9257a72cb45763f8, []int{5}
+}
+func (m *QueryGetDiscountTokenStatusResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetDiscountTokenStatusResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetDiscountTokenStatusResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetDiscountTokenStatusResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetDiscountTokenStatusResponse.Merge(m, src)
+}
+func (m *QueryGetDiscountTokenStatusResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetDiscountTokenStatusResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetDiscountTokenStatusResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetDiscountTokenStatusResponse proto.InternalMessageInfo
+
+func (m *QueryGetDiscountTokenStatusResponse) GetDiscountTokenStatus() DiscountTokenStatus {
+	if m != nil {
+		return m.DiscountTokenStatus
+	}
+	return DiscountTokenStatus{}
+}
+
+type QueryAllDiscountTokenStatusRequest struct {
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllDiscountTokenStatusRequest) Reset()         { *m = QueryAllDiscountTokenStatusRequest{} }
+func (m *QueryAllDiscountTokenStatusRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryAllDiscountTokenStatusRequest) ProtoMessage()    {}
+func (*QueryAllDiscountTokenStatusRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9257a72cb45763f8, []int{6}
+}
+func (m *QueryAllDiscountTokenStatusRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllDiscountTokenStatusRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllDiscountTokenStatusRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllDiscountTokenStatusRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllDiscountTokenStatusRequest.Merge(m, src)
+}
+func (m *QueryAllDiscountTokenStatusRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllDiscountTokenStatusRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllDiscountTokenStatusRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllDiscountTokenStatusRequest proto.InternalMessageInfo
+
+func (m *QueryAllDiscountTokenStatusRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryAllDiscountTokenStatusResponse struct {
+	DiscountTokenStatus []DiscountTokenStatus `protobuf:"bytes,1,rep,name=DiscountTokenStatus,proto3" json:"DiscountTokenStatus"`
+	Pagination          *query.PageResponse   `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllDiscountTokenStatusResponse) Reset()         { *m = QueryAllDiscountTokenStatusResponse{} }
+func (m *QueryAllDiscountTokenStatusResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryAllDiscountTokenStatusResponse) ProtoMessage()    {}
+func (*QueryAllDiscountTokenStatusResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9257a72cb45763f8, []int{7}
+}
+func (m *QueryAllDiscountTokenStatusResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllDiscountTokenStatusResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllDiscountTokenStatusResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllDiscountTokenStatusResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllDiscountTokenStatusResponse.Merge(m, src)
+}
+func (m *QueryAllDiscountTokenStatusResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllDiscountTokenStatusResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllDiscountTokenStatusResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllDiscountTokenStatusResponse proto.InternalMessageInfo
+
+func (m *QueryAllDiscountTokenStatusResponse) GetDiscountTokenStatus() []DiscountTokenStatus {
+	if m != nil {
+		return m.DiscountTokenStatus
+	}
+	return nil
+}
+
+func (m *QueryAllDiscountTokenStatusResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryDiscountTokenStatusQRequest struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Adding pagination to request
+	Pagination *query.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryDiscountTokenStatusQRequest) Reset()         { *m = QueryDiscountTokenStatusQRequest{} }
+func (m *QueryDiscountTokenStatusQRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryDiscountTokenStatusQRequest) ProtoMessage()    {}
+func (*QueryDiscountTokenStatusQRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9257a72cb45763f8, []int{8}
+}
+func (m *QueryDiscountTokenStatusQRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryDiscountTokenStatusQRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryDiscountTokenStatusQRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryDiscountTokenStatusQRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryDiscountTokenStatusQRequest.Merge(m, src)
+}
+func (m *QueryDiscountTokenStatusQRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryDiscountTokenStatusQRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryDiscountTokenStatusQRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryDiscountTokenStatusQRequest proto.InternalMessageInfo
+
+func (m *QueryDiscountTokenStatusQRequest) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *QueryDiscountTokenStatusQRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryDiscountTokenStatusQResponse struct {
+	DiscountToken *DiscountToken `protobuf:"bytes,1,opt,name=DiscountToken,proto3" json:"DiscountToken,omitempty"`
+	// Returning a list of discount token status
+	DiscountTokenStatus []*DiscountTokenStatus `protobuf:"bytes,2,rep,name=DiscountTokenStatus,proto3" json:"DiscountTokenStatus,omitempty"`
+	// Adding pagination to response
+	Pagination *query.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryDiscountTokenStatusQResponse) Reset()         { *m = QueryDiscountTokenStatusQResponse{} }
+func (m *QueryDiscountTokenStatusQResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryDiscountTokenStatusQResponse) ProtoMessage()    {}
+func (*QueryDiscountTokenStatusQResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9257a72cb45763f8, []int{9}
+}
+func (m *QueryDiscountTokenStatusQResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryDiscountTokenStatusQResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryDiscountTokenStatusQResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryDiscountTokenStatusQResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryDiscountTokenStatusQResponse.Merge(m, src)
+}
+func (m *QueryDiscountTokenStatusQResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryDiscountTokenStatusQResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryDiscountTokenStatusQResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryDiscountTokenStatusQResponse proto.InternalMessageInfo
+
+func (m *QueryDiscountTokenStatusQResponse) GetDiscountToken() *DiscountToken {
+	if m != nil {
+		return m.DiscountToken
+	}
+	return nil
+}
+
+func (m *QueryDiscountTokenStatusQResponse) GetDiscountTokenStatus() []*DiscountTokenStatus {
+	if m != nil {
+		return m.DiscountTokenStatus
+	}
+	return nil
+}
+
+func (m *QueryDiscountTokenStatusQResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryParamsRequest)(nil), "mitoblockchaindev.mitoblockchaindev.QueryParamsRequest")
 	proto.RegisterType((*QueryParamsResponse)(nil), "mitoblockchaindev.mitoblockchaindev.QueryParamsResponse")
 	proto.RegisterType((*QueryDiscountTokensRequest)(nil), "mitoblockchaindev.mitoblockchaindev.QueryDiscountTokensRequest")
 	proto.RegisterType((*QueryDiscountTokensResponse)(nil), "mitoblockchaindev.mitoblockchaindev.QueryDiscountTokensResponse")
+	proto.RegisterType((*QueryGetDiscountTokenStatusRequest)(nil), "mitoblockchaindev.mitoblockchaindev.QueryGetDiscountTokenStatusRequest")
+	proto.RegisterType((*QueryGetDiscountTokenStatusResponse)(nil), "mitoblockchaindev.mitoblockchaindev.QueryGetDiscountTokenStatusResponse")
+	proto.RegisterType((*QueryAllDiscountTokenStatusRequest)(nil), "mitoblockchaindev.mitoblockchaindev.QueryAllDiscountTokenStatusRequest")
+	proto.RegisterType((*QueryAllDiscountTokenStatusResponse)(nil), "mitoblockchaindev.mitoblockchaindev.QueryAllDiscountTokenStatusResponse")
+	proto.RegisterType((*QueryDiscountTokenStatusQRequest)(nil), "mitoblockchaindev.mitoblockchaindev.QueryDiscountTokenStatusQRequest")
+	proto.RegisterType((*QueryDiscountTokenStatusQResponse)(nil), "mitoblockchaindev.mitoblockchaindev.QueryDiscountTokenStatusQResponse")
 }
 
 func init() { proto.RegisterFile("mitoblockchaindev/query.proto", fileDescriptor_9257a72cb45763f8) }
 
 var fileDescriptor_9257a72cb45763f8 = []byte{
-	// 434 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x53, 0xcf, 0xea, 0xd3, 0x30,
-	0x1c, 0x6f, 0x36, 0xdd, 0x21, 0x43, 0x0f, 0x71, 0x87, 0x51, 0xb5, 0x8e, 0x0a, 0x73, 0x38, 0x4c,
-	0x58, 0x27, 0xea, 0x41, 0x50, 0x86, 0x7f, 0xf0, 0x36, 0x8b, 0x07, 0xf1, 0xa2, 0x69, 0x1b, 0x6a,
-	0xd9, 0xd6, 0x74, 0x4b, 0x36, 0xdc, 0xd5, 0x07, 0x10, 0xc1, 0x17, 0xf1, 0x11, 0x3c, 0xee, 0x38,
-	0xf1, 0xe2, 0x49, 0x64, 0xf3, 0x41, 0xa4, 0x49, 0x86, 0x2b, 0x9d, 0x58, 0x7f, 0xb7, 0xd2, 0x6f,
-	0x3e, 0x7f, 0xf3, 0x0d, 0xbc, 0x3a, 0x4b, 0x24, 0x0f, 0xa6, 0x3c, 0x9c, 0x84, 0x6f, 0x69, 0x92,
-	0x46, 0x6c, 0x45, 0xe6, 0x4b, 0xb6, 0x58, 0xe3, 0x6c, 0xc1, 0x25, 0x47, 0xd7, 0x4b, 0x63, 0x5c,
-	0xfa, 0x63, 0xb7, 0x62, 0x1e, 0x73, 0x75, 0x9e, 0xe4, 0x5f, 0x1a, 0x6a, 0x5f, 0x89, 0x39, 0x8f,
-	0xa7, 0x8c, 0xd0, 0x2c, 0x21, 0x34, 0x4d, 0xb9, 0xa4, 0x32, 0xe1, 0xa9, 0x30, 0xd3, 0x9b, 0x21,
-	0x17, 0x33, 0x2e, 0x48, 0x40, 0x05, 0xd3, 0x8a, 0x64, 0x35, 0x08, 0x98, 0xa4, 0x03, 0x92, 0xd1,
-	0x38, 0x49, 0xd5, 0x61, 0x73, 0xd6, 0x29, 0x7b, 0xcc, 0xe8, 0x82, 0xce, 0x0e, 0x5c, 0xdd, 0xf2,
-	0x3c, 0x4a, 0x44, 0xc8, 0x97, 0xa9, 0x7c, 0x2d, 0xf9, 0x84, 0x19, 0x1e, 0xb7, 0x05, 0xd1, 0xf3,
-	0x5c, 0x69, 0xac, 0xc0, 0x3e, 0x9b, 0x2f, 0x99, 0x90, 0xee, 0x1b, 0x78, 0xa9, 0xf0, 0x57, 0x64,
-	0x3c, 0x15, 0x0c, 0x3d, 0x83, 0x0d, 0x2d, 0xd2, 0x06, 0x1d, 0xd0, 0x6b, 0x7a, 0x7d, 0x5c, 0xa1,
-	0x0a, 0xac, 0x49, 0x46, 0xe7, 0x36, 0x3f, 0xae, 0x59, 0xbe, 0x21, 0x70, 0x23, 0x68, 0x2b, 0x85,
-	0x47, 0xc6, 0xd4, 0x8b, 0xdc, 0xd3, 0x41, 0x1f, 0x3d, 0x81, 0xf0, 0x4f, 0x62, 0x23, 0xd6, 0xc5,
-	0xba, 0x1e, 0x9c, 0xd7, 0x83, 0xf5, 0x85, 0x98, 0x7a, 0xf0, 0x98, 0xc6, 0xcc, 0x60, 0xfd, 0x23,
-	0xa4, 0xfb, 0x05, 0xc0, 0xcb, 0x27, 0x65, 0x4c, 0xa0, 0x97, 0xf0, 0x42, 0x74, 0x3c, 0x69, 0x83,
-	0x4e, 0xbd, 0xd7, 0xf4, 0xbc, 0x4a, 0xb9, 0x0a, 0x9c, 0x7e, 0x91, 0x08, 0x3d, 0x2d, 0x24, 0xa8,
-	0xa9, 0x04, 0x37, 0xfe, 0x99, 0x40, 0xdb, 0x3a, 0x8e, 0xe0, 0x7d, 0xa8, 0xc3, 0xf3, 0x2a, 0x02,
-	0xfa, 0x0c, 0x60, 0x43, 0x77, 0x89, 0xee, 0x56, 0x32, 0x58, 0xbe, 0x58, 0xfb, 0xde, 0xff, 0x03,
-	0xb5, 0x27, 0x77, 0xf8, 0xfe, 0xdb, 0xaf, 0x4f, 0xb5, 0x5b, 0xa8, 0x4f, 0xca, 0x9b, 0xf5, 0xb7,
-	0x5d, 0x44, 0x5f, 0x01, 0xbc, 0x58, 0xac, 0x1e, 0x3d, 0xa8, 0xee, 0xe0, 0xe4, 0x6e, 0xd8, 0x0f,
-	0xcf, 0x4e, 0x60, 0xa2, 0xdc, 0x57, 0x51, 0xee, 0xa0, 0xdb, 0x95, 0xa2, 0x14, 0x9f, 0x8d, 0x18,
-	0x3d, 0xde, 0xec, 0x1c, 0xb0, 0xdd, 0x39, 0xe0, 0xe7, 0xce, 0x01, 0x1f, 0xf7, 0x8e, 0xb5, 0xdd,
-	0x3b, 0xd6, 0xf7, 0xbd, 0x63, 0xbd, 0xea, 0x97, 0xc1, 0xef, 0x4e, 0x10, 0xca, 0x75, 0xc6, 0x44,
-	0xd0, 0x50, 0xef, 0x6f, 0xf8, 0x3b, 0x00, 0x00, 0xff, 0xff, 0xbf, 0x64, 0x05, 0x3d, 0x6d, 0x04,
-	0x00, 0x00,
+	// 671 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x96, 0xc1, 0x6e, 0xd3, 0x40,
+	0x10, 0x86, 0xb3, 0x6e, 0x89, 0xd0, 0x56, 0xf4, 0xb0, 0x8d, 0x50, 0x65, 0xc0, 0x04, 0x57, 0x2a,
+	0x15, 0x51, 0x6d, 0x35, 0xad, 0xa0, 0x42, 0x95, 0x4a, 0x02, 0x6d, 0xe8, 0xad, 0x0d, 0x1c, 0x10,
+	0x97, 0xe0, 0xc4, 0x2b, 0x63, 0xea, 0x78, 0x9d, 0x78, 0x53, 0x51, 0x10, 0x17, 0x9e, 0x00, 0x89,
+	0x03, 0xaf, 0x81, 0x78, 0x02, 0x8e, 0x3d, 0x16, 0x71, 0xe1, 0x84, 0xaa, 0x04, 0x89, 0x23, 0xf0,
+	0x06, 0x28, 0xbb, 0x1b, 0x81, 0xb1, 0xe3, 0x38, 0x4e, 0xb8, 0x45, 0xd9, 0x99, 0xf9, 0xe7, 0xfb,
+	0x67, 0x3d, 0x36, 0xbc, 0xd2, 0xb4, 0x29, 0xa9, 0x3b, 0xa4, 0x71, 0xd8, 0x78, 0x6a, 0xd8, 0xae,
+	0x89, 0x8f, 0xf4, 0x56, 0x07, 0xb7, 0x8f, 0x35, 0xaf, 0x4d, 0x28, 0x41, 0x4b, 0xa1, 0x63, 0x2d,
+	0xf4, 0x8f, 0x9c, 0xb3, 0x88, 0x45, 0x58, 0xbc, 0xde, 0xff, 0xc5, 0x53, 0xe5, 0xcb, 0x16, 0x21,
+	0x96, 0x83, 0x75, 0xc3, 0xb3, 0x75, 0xc3, 0x75, 0x09, 0x35, 0xa8, 0x4d, 0x5c, 0x5f, 0x9c, 0xde,
+	0x68, 0x10, 0xbf, 0x49, 0x7c, 0xbd, 0x6e, 0xf8, 0x98, 0x2b, 0xea, 0x47, 0x6b, 0x75, 0x4c, 0x8d,
+	0x35, 0xdd, 0x33, 0x2c, 0xdb, 0x65, 0xc1, 0x22, 0x56, 0x09, 0xf7, 0xe8, 0x19, 0x6d, 0xa3, 0x39,
+	0xa8, 0xb5, 0x1a, 0x3e, 0x37, 0x6d, 0xbf, 0x41, 0x3a, 0x2e, 0xad, 0x51, 0x72, 0x88, 0xdd, 0x9a,
+	0x4f, 0x0d, 0xda, 0x19, 0x84, 0x2f, 0x8f, 0x0a, 0xe7, 0x71, 0x6a, 0x0e, 0xa2, 0x83, 0x7e, 0x63,
+	0xfb, 0x4c, 0xab, 0x8a, 0x5b, 0x1d, 0xec, 0x53, 0xf5, 0x09, 0x5c, 0x08, 0xfc, 0xeb, 0x7b, 0xc4,
+	0xf5, 0x31, 0xda, 0x83, 0x59, 0xde, 0xd3, 0x22, 0xc8, 0x83, 0x95, 0xb9, 0x62, 0x41, 0x4b, 0xe0,
+	0x9c, 0xc6, 0x8b, 0x94, 0x67, 0x4f, 0xbe, 0x5e, 0xcd, 0x54, 0x45, 0x01, 0xd5, 0x84, 0x32, 0x53,
+	0xb8, 0x27, 0x9a, 0x7a, 0xd8, 0xef, 0x69, 0xa0, 0x8f, 0x76, 0x21, 0xfc, 0x63, 0x90, 0x10, 0x5b,
+	0xd6, 0xb8, 0x9b, 0x5a, 0xdf, 0x4d, 0x8d, 0xcf, 0x4f, 0xb8, 0xa9, 0xed, 0x1b, 0x16, 0x16, 0xb9,
+	0xd5, 0xbf, 0x32, 0xd5, 0x8f, 0x00, 0x5e, 0x8a, 0x94, 0x11, 0x40, 0x8f, 0xe0, 0x85, 0xc0, 0xc9,
+	0x22, 0xc8, 0xcf, 0xac, 0xcc, 0x15, 0x8b, 0x89, 0xb8, 0x02, 0x99, 0xd5, 0x60, 0x21, 0x54, 0x09,
+	0x10, 0x48, 0x8c, 0xe0, 0xfa, 0x48, 0x02, 0xde, 0x56, 0x00, 0x61, 0x03, 0xaa, 0x8c, 0xa0, 0x82,
+	0x69, 0x40, 0xe1, 0x01, 0x9b, 0xf6, 0xc0, 0xb0, 0x79, 0x28, 0xd9, 0x26, 0x33, 0x6a, 0xb6, 0x2a,
+	0xd9, 0xa6, 0xfa, 0x0e, 0xc0, 0xa5, 0xd8, 0x34, 0x61, 0x80, 0x07, 0x17, 0x22, 0x8e, 0x85, 0xe3,
+	0x9b, 0xe3, 0xdb, 0xc0, 0xf3, 0xc5, 0xac, 0xa3, 0x4a, 0xab, 0x8e, 0xe0, 0x29, 0x39, 0x4e, 0x0c,
+	0xcf, 0xb4, 0x2e, 0xc0, 0xd9, 0xc0, 0x87, 0x61, 0x72, 0xa3, 0x7c, 0x98, 0xf9, 0x4f, 0x3e, 0x4c,
+	0xef, 0x82, 0xbc, 0x80, 0xf9, 0xf0, 0x15, 0xe7, 0x22, 0x07, 0x43, 0xae, 0xc7, 0x3f, 0xf6, 0x4a,
+	0xa9, 0xed, 0xfd, 0x20, 0xc1, 0x6b, 0x31, 0xe2, 0xc3, 0x9f, 0x32, 0x30, 0x9d, 0xa7, 0xec, 0x59,
+	0xf4, 0xd8, 0xa4, 0xc9, 0xc6, 0x96, 0x64, 0x60, 0x33, 0xa9, 0x07, 0x56, 0xfc, 0x7e, 0x1e, 0x9e,
+	0x63, 0xa6, 0xa1, 0xf7, 0x00, 0x66, 0xf9, 0x76, 0x44, 0xb7, 0x12, 0x35, 0x1b, 0x5e, 0xd5, 0xf2,
+	0xe6, 0xf8, 0x89, 0xbc, 0x27, 0x75, 0xfd, 0xf5, 0xe7, 0x6f, 0x6f, 0xa5, 0x55, 0x54, 0xd0, 0xc3,
+	0xef, 0x8a, 0x61, 0x2f, 0x23, 0xf4, 0x09, 0xc0, 0xf9, 0xe0, 0x32, 0x45, 0xdb, 0xc9, 0x3b, 0x88,
+	0xdc, 0xf6, 0xf2, 0x9d, 0xf4, 0x05, 0x04, 0xca, 0x16, 0x43, 0xb9, 0x89, 0x36, 0x12, 0xa1, 0x04,
+	0x5f, 0x84, 0x3e, 0xfa, 0x05, 0x60, 0xf4, 0xc4, 0x93, 0xf7, 0x15, 0xbb, 0x9d, 0xe5, 0xfb, 0x93,
+	0x17, 0x12, 0xa0, 0x15, 0x06, 0x5a, 0x42, 0xdb, 0x29, 0x40, 0xc5, 0x07, 0x82, 0xfe, 0xd2, 0x36,
+	0x5f, 0xa1, 0x1f, 0x00, 0x5e, 0x8c, 0x10, 0x2a, 0x39, 0xce, 0x38, 0xd8, 0xb1, 0x4b, 0x7c, 0x1c,
+	0xec, 0xf8, 0xf5, 0xac, 0x96, 0x19, 0xf6, 0x16, 0xba, 0x9d, 0x1e, 0x1b, 0xfd, 0x04, 0x30, 0x17,
+	0xb5, 0xa6, 0xd0, 0x4e, 0xca, 0xeb, 0x17, 0xdc, 0xb1, 0xf2, 0xee, 0xa4, 0x65, 0x04, 0xeb, 0x1e,
+	0x63, 0xbd, 0x8b, 0x4a, 0xe9, 0x59, 0x6b, 0x2d, 0x36, 0xe4, 0xf2, 0xce, 0x49, 0x57, 0x01, 0xa7,
+	0x5d, 0x05, 0x9c, 0x75, 0x15, 0xf0, 0xa6, 0xa7, 0x64, 0x4e, 0x7b, 0x4a, 0xe6, 0x4b, 0x4f, 0xc9,
+	0x3c, 0x2e, 0x84, 0x2b, 0x3d, 0x8f, 0xa8, 0x4e, 0x8f, 0x3d, 0xec, 0xd7, 0xb3, 0xec, 0x53, 0x71,
+	0xfd, 0x77, 0x00, 0x00, 0x00, 0xff, 0xff, 0x3d, 0xff, 0xd9, 0x72, 0x47, 0x0b, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -269,6 +588,12 @@ type QueryClient interface {
 	Params(ctx context.Context, in *QueryParamsRequest, opts ...grpc.CallOption) (*QueryParamsResponse, error)
 	// Queries a list of DiscountTokens items.
 	DiscountTokens(ctx context.Context, in *QueryDiscountTokensRequest, opts ...grpc.CallOption) (*QueryDiscountTokensResponse, error)
+	// Queries a DiscountTokenStatus by id.
+	DiscountTokenStatus(ctx context.Context, in *QueryGetDiscountTokenStatusRequest, opts ...grpc.CallOption) (*QueryGetDiscountTokenStatusResponse, error)
+	// Queries a list of DiscountTokenStatus items.
+	DiscountTokenStatusAll(ctx context.Context, in *QueryAllDiscountTokenStatusRequest, opts ...grpc.CallOption) (*QueryAllDiscountTokenStatusResponse, error)
+	// Queries a list of DiscountTokenStatusQ items.
+	DiscountTokenStatusQ(ctx context.Context, in *QueryDiscountTokenStatusQRequest, opts ...grpc.CallOption) (*QueryDiscountTokenStatusQResponse, error)
 }
 
 type queryClient struct {
@@ -297,12 +622,45 @@ func (c *queryClient) DiscountTokens(ctx context.Context, in *QueryDiscountToken
 	return out, nil
 }
 
+func (c *queryClient) DiscountTokenStatus(ctx context.Context, in *QueryGetDiscountTokenStatusRequest, opts ...grpc.CallOption) (*QueryGetDiscountTokenStatusResponse, error) {
+	out := new(QueryGetDiscountTokenStatusResponse)
+	err := c.cc.Invoke(ctx, "/mitoblockchaindev.mitoblockchaindev.Query/DiscountTokenStatus", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) DiscountTokenStatusAll(ctx context.Context, in *QueryAllDiscountTokenStatusRequest, opts ...grpc.CallOption) (*QueryAllDiscountTokenStatusResponse, error) {
+	out := new(QueryAllDiscountTokenStatusResponse)
+	err := c.cc.Invoke(ctx, "/mitoblockchaindev.mitoblockchaindev.Query/DiscountTokenStatusAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) DiscountTokenStatusQ(ctx context.Context, in *QueryDiscountTokenStatusQRequest, opts ...grpc.CallOption) (*QueryDiscountTokenStatusQResponse, error) {
+	out := new(QueryDiscountTokenStatusQResponse)
+	err := c.cc.Invoke(ctx, "/mitoblockchaindev.mitoblockchaindev.Query/DiscountTokenStatusQ", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	// Parameters queries the parameters of the module.
 	Params(context.Context, *QueryParamsRequest) (*QueryParamsResponse, error)
 	// Queries a list of DiscountTokens items.
 	DiscountTokens(context.Context, *QueryDiscountTokensRequest) (*QueryDiscountTokensResponse, error)
+	// Queries a DiscountTokenStatus by id.
+	DiscountTokenStatus(context.Context, *QueryGetDiscountTokenStatusRequest) (*QueryGetDiscountTokenStatusResponse, error)
+	// Queries a list of DiscountTokenStatus items.
+	DiscountTokenStatusAll(context.Context, *QueryAllDiscountTokenStatusRequest) (*QueryAllDiscountTokenStatusResponse, error)
+	// Queries a list of DiscountTokenStatusQ items.
+	DiscountTokenStatusQ(context.Context, *QueryDiscountTokenStatusQRequest) (*QueryDiscountTokenStatusQResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -314,6 +672,15 @@ func (*UnimplementedQueryServer) Params(ctx context.Context, req *QueryParamsReq
 }
 func (*UnimplementedQueryServer) DiscountTokens(ctx context.Context, req *QueryDiscountTokensRequest) (*QueryDiscountTokensResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DiscountTokens not implemented")
+}
+func (*UnimplementedQueryServer) DiscountTokenStatus(ctx context.Context, req *QueryGetDiscountTokenStatusRequest) (*QueryGetDiscountTokenStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DiscountTokenStatus not implemented")
+}
+func (*UnimplementedQueryServer) DiscountTokenStatusAll(ctx context.Context, req *QueryAllDiscountTokenStatusRequest) (*QueryAllDiscountTokenStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DiscountTokenStatusAll not implemented")
+}
+func (*UnimplementedQueryServer) DiscountTokenStatusQ(ctx context.Context, req *QueryDiscountTokenStatusQRequest) (*QueryDiscountTokenStatusQResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DiscountTokenStatusQ not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -356,6 +723,60 @@ func _Query_DiscountTokens_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_DiscountTokenStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetDiscountTokenStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).DiscountTokenStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/mitoblockchaindev.mitoblockchaindev.Query/DiscountTokenStatus",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).DiscountTokenStatus(ctx, req.(*QueryGetDiscountTokenStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_DiscountTokenStatusAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryAllDiscountTokenStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).DiscountTokenStatusAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/mitoblockchaindev.mitoblockchaindev.Query/DiscountTokenStatusAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).DiscountTokenStatusAll(ctx, req.(*QueryAllDiscountTokenStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_DiscountTokenStatusQ_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryDiscountTokenStatusQRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).DiscountTokenStatusQ(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/mitoblockchaindev.mitoblockchaindev.Query/DiscountTokenStatusQ",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).DiscountTokenStatusQ(ctx, req.(*QueryDiscountTokenStatusQRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "mitoblockchaindev.mitoblockchaindev.Query",
 	HandlerType: (*QueryServer)(nil),
@@ -367,6 +788,18 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DiscountTokens",
 			Handler:    _Query_DiscountTokens_Handler,
+		},
+		{
+			MethodName: "DiscountTokenStatus",
+			Handler:    _Query_DiscountTokenStatus_Handler,
+		},
+		{
+			MethodName: "DiscountTokenStatusAll",
+			Handler:    _Query_DiscountTokenStatusAll_Handler,
+		},
+		{
+			MethodName: "DiscountTokenStatusQ",
+			Handler:    _Query_DiscountTokenStatusQ_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -513,6 +946,252 @@ func (m *QueryDiscountTokensResponse) MarshalToSizedBuffer(dAtA []byte) (int, er
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryGetDiscountTokenStatusRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetDiscountTokenStatusRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetDiscountTokenStatusRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintQuery(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetDiscountTokenStatusResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetDiscountTokenStatusResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetDiscountTokenStatusResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	{
+		size, err := m.DiscountTokenStatus.MarshalToSizedBuffer(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = encodeVarintQuery(dAtA, i, uint64(size))
+	}
+	i--
+	dAtA[i] = 0xa
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllDiscountTokenStatusRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllDiscountTokenStatusRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllDiscountTokenStatusRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllDiscountTokenStatusResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllDiscountTokenStatusResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllDiscountTokenStatusResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.DiscountTokenStatus) > 0 {
+		for iNdEx := len(m.DiscountTokenStatus) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.DiscountTokenStatus[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryDiscountTokenStatusQRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryDiscountTokenStatusQRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryDiscountTokenStatusQRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if m.Id != 0 {
+		i = encodeVarintQuery(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryDiscountTokenStatusQResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryDiscountTokenStatusQResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryDiscountTokenStatusQResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.DiscountTokenStatus) > 0 {
+		for iNdEx := len(m.DiscountTokenStatus) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.DiscountTokenStatus[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0x12
+		}
+	}
+	if m.DiscountToken != nil {
+		{
+			size, err := m.DiscountToken.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -565,6 +1244,100 @@ func (m *QueryDiscountTokensResponse) Size() (n int) {
 	_ = l
 	if len(m.DiscountToken) > 0 {
 		for _, e := range m.DiscountToken {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetDiscountTokenStatusRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovQuery(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *QueryGetDiscountTokenStatusResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = m.DiscountTokenStatus.Size()
+	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryAllDiscountTokenStatusRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryAllDiscountTokenStatusResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.DiscountTokenStatus) > 0 {
+		for _, e := range m.DiscountTokenStatus {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryDiscountTokenStatusQRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovQuery(uint64(m.Id))
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryDiscountTokenStatusQResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.DiscountToken != nil {
+		l = m.DiscountToken.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	if len(m.DiscountTokenStatus) > 0 {
+		for _, e := range m.DiscountTokenStatus {
 			l = e.Size()
 			n += 1 + l + sovQuery(uint64(l))
 		}
@@ -865,6 +1638,625 @@ func (m *QueryDiscountTokensResponse) Unmarshal(dAtA []byte) error {
 			}
 			iNdEx = postIndex
 		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetDiscountTokenStatusRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetDiscountTokenStatusRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetDiscountTokenStatusRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetDiscountTokenStatusResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetDiscountTokenStatusResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetDiscountTokenStatusResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field DiscountTokenStatus", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.DiscountTokenStatus.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllDiscountTokenStatusRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllDiscountTokenStatusRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllDiscountTokenStatusRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllDiscountTokenStatusResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllDiscountTokenStatusResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllDiscountTokenStatusResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field DiscountTokenStatus", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.DiscountTokenStatus = append(m.DiscountTokenStatus, DiscountTokenStatus{})
+			if err := m.DiscountTokenStatus[len(m.DiscountTokenStatus)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryDiscountTokenStatusQRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryDiscountTokenStatusQRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryDiscountTokenStatusQRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryDiscountTokenStatusQResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryDiscountTokenStatusQResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryDiscountTokenStatusQResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field DiscountToken", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.DiscountToken == nil {
+				m.DiscountToken = &DiscountToken{}
+			}
+			if err := m.DiscountToken.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field DiscountTokenStatus", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.DiscountTokenStatus = append(m.DiscountTokenStatus, &DiscountTokenStatus{})
+			if err := m.DiscountTokenStatus[len(m.DiscountTokenStatus)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
 			}
