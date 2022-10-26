@@ -3,8 +3,9 @@ package keeper
 import (
 	"context"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
 	"mitoblockchaindev/x/mitoblockchaindev/types"
+
+	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
 func (k msgServer) CreateDiscountToken(goCtx context.Context, msg *types.MsgCreateDiscountToken) (*types.MsgCreateDiscountTokenResponse, error) {
@@ -21,6 +22,7 @@ func (k msgServer) CreateDiscountToken(goCtx context.Context, msg *types.MsgCrea
 		EligibleCompanies: msg.EligibleCompanies,
 		ItemType:          msg.ItemType,
 		ExpiryDate:        msg.ExpiryDate,
+		CreatedAt:         ctx.BlockHeight(),
 	}
 
 	// Add a discount token to the store and get back the ID

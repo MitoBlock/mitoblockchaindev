@@ -15,4 +15,5 @@ message DiscountToken {
   string eligibleCompanies = 8;
   string itemType = 9;
   string expiryDate = 10;
+  int64 createdAt = 11;
 }
