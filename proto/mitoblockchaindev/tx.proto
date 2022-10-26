@@ -8,6 +8,8 @@ option go_package = "mitoblockchaindev/x/mitoblockchaindev/types";
 // Msg defines the Msg service.
 service Msg {
       rpc CreateDiscountToken(MsgCreateDiscountToken) returns (MsgCreateDiscountTokenResponse);
+  rpc CreateDiscountTokenStatus(MsgCreateDiscountTokenStatus) returns (MsgCreateDiscountTokenStatusResponse);
+  rpc DeleteDiscountTokenStatus(MsgDeleteDiscountTokenStatus) returns (MsgDeleteDiscountTokenStatusResponse);
 // this line is used by starport scaffolding # proto/tx/rpc
 }
 
@@ -21,9 +23,33 @@ message MsgCreateDiscountToken {
   string eligibleCompanies = 7;
   string itemType = 8;
   string expiryDate = 9;
+  uint64 id = 10;
 }
 
 message MsgCreateDiscountTokenResponse {
+  uint64 id = 1;
+}
+
+message MsgCreateDiscountTokenStatus {
+  string creator = 1;
+  uint64 tokenID = 2;
+  string timestamp = 3;
+  string status = 4;
+  uint64 id = 5;
+}
+
+message MsgCreateDiscountTokenStatusResponse {
+  uint64 id = 1;
+}
+
+message MsgDeleteDiscountTokenStatus {
+  string creator = 1;
+  uint64 discountTokenStatusID = 2;
+  uint64 tokenID = 3;
+  uint64 id = 4;
+}
+
+message MsgDeleteDiscountTokenStatusResponse {
   uint64 id = 1;
 }
 
