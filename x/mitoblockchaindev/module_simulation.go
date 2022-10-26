@@ -24,7 +24,19 @@ var (
 )
 
 const (
-// this line is used by starport scaffolding # simapp/module/const
+	opWeightMsgCreateDiscountToken = "op_weight_msg_create_discount_token"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateDiscountToken int = 100
+
+	opWeightMsgCreateDiscountTokenStatus = "op_weight_msg_create_discount_token_status"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateDiscountTokenStatus int = 100
+
+	opWeightMsgDeleteDiscountTokenStatus = "op_weight_msg_delete_discount_token_status"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteDiscountTokenStatus int = 100
+
+	// this line is used by starport scaffolding # simapp/module/const
 )
 
 // GenerateGenesisState creates a randomized GenState of the module
@@ -57,6 +69,39 @@ func (am AppModule) RegisterStoreDecoder(_ sdk.StoreDecoderRegistry) {}
 // WeightedOperations returns the all the gov module operations with their respective weights.
 func (am AppModule) WeightedOperations(simState module.SimulationState) []simtypes.WeightedOperation {
 	operations := make([]simtypes.WeightedOperation, 0)
+
+	var weightMsgCreateDiscountToken int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateDiscountToken, &weightMsgCreateDiscountToken, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateDiscountToken = defaultWeightMsgCreateDiscountToken
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateDiscountToken,
+		mitoblockchaindevsimulation.SimulateMsgCreateDiscountToken(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgCreateDiscountTokenStatus int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateDiscountTokenStatus, &weightMsgCreateDiscountTokenStatus, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateDiscountTokenStatus = defaultWeightMsgCreateDiscountTokenStatus
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateDiscountTokenStatus,
+		mitoblockchaindevsimulation.SimulateMsgCreateDiscountTokenStatus(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteDiscountTokenStatus int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteDiscountTokenStatus, &weightMsgDeleteDiscountTokenStatus, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteDiscountTokenStatus = defaultWeightMsgDeleteDiscountTokenStatus
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteDiscountTokenStatus,
+		mitoblockchaindevsimulation.SimulateMsgDeleteDiscountTokenStatus(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
 
 	// this line is used by starport scaffolding # simapp/module/operation
 
