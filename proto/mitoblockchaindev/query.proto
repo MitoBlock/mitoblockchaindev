@@ -5,6 +5,7 @@ import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "mitoblockchaindev/params.proto";
+import "mitoblockchaindev/discount_token_status.proto";
 // this line is used by starport scaffolding # 1
 import "mitoblockchaindev/discount_token.proto";
 
@@ -19,6 +20,21 @@ service Query {
   // Queries a list of DiscountTokens items.
 	rpc DiscountTokens(QueryDiscountTokensRequest) returns (QueryDiscountTokensResponse) {
 		option (google.api.http).get = "/mitoblockchaindev/mitoblockchaindev/discount_tokens";
+	}
+
+// Queries a DiscountTokenStatus by id.
+	rpc DiscountTokenStatus(QueryGetDiscountTokenStatusRequest) returns (QueryGetDiscountTokenStatusResponse) {
+		option (google.api.http).get = "/mitoblockchaindev/mitoblockchaindev/discount_token_status/{id}";
+	}
+
+	// Queries a list of DiscountTokenStatus items.
+	rpc DiscountTokenStatusAll(QueryAllDiscountTokenStatusRequest) returns (QueryAllDiscountTokenStatusResponse) {
+		option (google.api.http).get = "/mitoblockchaindev/mitoblockchaindev/discount_token_status";
+	}
+
+// Queries a list of DiscountTokenStatusQ items.
+	rpc DiscountTokenStatusQ(QueryDiscountTokenStatusQRequest) returns (QueryDiscountTokenStatusQResponse) {
+		option (google.api.http).get = "/mitoblockchaindev/mitoblockchaindev/discount_token_status_q/{id}";
 	}
 
 // this line is used by starport scaffolding # 2
@@ -40,10 +56,44 @@ message QueryDiscountTokensRequest {
 
 message QueryDiscountTokensResponse {
    // Returning a list of discount tokens
-  repeated DiscountToken discountToken = 1;
+  repeated DiscountToken DiscountToken = 1;
 
   // Adding pagination to response
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetDiscountTokenStatusRequest {
+	uint64 id = 1;
+}
+
+message QueryGetDiscountTokenStatusResponse {
+	DiscountTokenStatus DiscountTokenStatus = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllDiscountTokenStatusRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllDiscountTokenStatusResponse {
+	repeated DiscountTokenStatus DiscountTokenStatus = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryDiscountTokenStatusQRequest {
+  uint64 id = 1;
+
+  // Adding pagination to request
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
+}
+
+message QueryDiscountTokenStatusQResponse {
+  DiscountToken DiscountToken = 1;
+
+  // Returning a list of discount token status
+  repeated DiscountTokenStatus DiscountTokenStatus = 2;
+
+  // Adding pagination to response
+  cosmos.base.query.v1beta1.PageResponse pagination = 3;
 }
 
 // this line is used by starport scaffolding # 3
