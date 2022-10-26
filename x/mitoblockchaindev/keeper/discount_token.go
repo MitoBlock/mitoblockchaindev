@@ -67,3 +67,18 @@ func (k Keeper) AppendDiscountToken(ctx sdk.Context, discountToken types.Discoun
 	k.SetDiscountTokenCount(ctx, count+1)
 	return count
 }
+
+func (k Keeper) GetDiscountToken(ctx sdk.Context, id uint64) (val types.DiscountToken, found bool) {
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.DiscountTokenKey))
+
+	bz := make([]byte, 8)
+	binary.BigEndian.PutUint64(bz, id)
+
+	b := store.Get(bz)
+	if b == nil {
+		return val, false
+	}
+
+	k.cdc.MustUnmarshal(b, &val)
+	return val, true
+}
