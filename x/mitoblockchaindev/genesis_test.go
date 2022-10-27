@@ -23,6 +23,15 @@ func TestGenesis(t *testing.T) {
 			},
 		},
 		DiscountTokenStatusCount: 2,
+		MembershipTokenStatusList: []types.MembershipTokenStatus{
+			{
+				Id: 0,
+			},
+			{
+				Id: 1,
+			},
+		},
+		MembershipTokenStatusCount: 2,
 		// this line is used by starport scaffolding # genesis/test/state
 	}
 
@@ -36,5 +45,7 @@ func TestGenesis(t *testing.T) {
 
 	require.ElementsMatch(t, genesisState.DiscountTokenStatusList, got.DiscountTokenStatusList)
 	require.Equal(t, genesisState.DiscountTokenStatusCount, got.DiscountTokenStatusCount)
+	require.ElementsMatch(t, genesisState.MembershipTokenStatusList, got.MembershipTokenStatusList)
+	require.Equal(t, genesisState.MembershipTokenStatusCount, got.MembershipTokenStatusCount)
 	// this line is used by starport scaffolding # genesis/test/assert
 }

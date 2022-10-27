@@ -8,6 +8,6 @@ import (
 
 // x/mitoblockchaindev module sentinel errors
 var (
-	ErrDiscountTokenStatusOld = sdkerrors.Register(ModuleName, 1300, "")
-	ErrID                     = sdkerrors.Register(ModuleName, 1400, "")
+	ErrTokenStatusOld = sdkerrors.Register(ModuleName, 1300, "")
+	ErrID             = sdkerrors.Register(ModuleName, 1400, "")
 )

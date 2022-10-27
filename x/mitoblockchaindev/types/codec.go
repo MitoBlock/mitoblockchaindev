@@ -11,6 +11,9 @@ func RegisterCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgCreateDiscountToken{}, "mitoblockchaindev/CreateDiscountToken", nil)
 	cdc.RegisterConcrete(&MsgCreateDiscountTokenStatus{}, "mitoblockchaindev/CreateDiscountTokenStatus", nil)
 	cdc.RegisterConcrete(&MsgDeleteDiscountTokenStatus{}, "mitoblockchaindev/DeleteDiscountTokenStatus", nil)
+	cdc.RegisterConcrete(&MsgCreateMembershipToken{}, "mitoblockchaindev/CreateMembershipToken", nil)
+	cdc.RegisterConcrete(&MsgCreateMembershipTokenStatus{}, "mitoblockchaindev/CreateMembershipTokenStatus", nil)
+	cdc.RegisterConcrete(&MsgDeleteMembershipTokenStatus{}, "mitoblockchaindev/DeleteMembershipTokenStatus", nil)
 	// this line is used by starport scaffolding # 2
 }
 
@@ -23,6 +26,15 @@ func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
 	)
 	registry.RegisterImplementations((*sdk.Msg)(nil),
 		&MsgDeleteDiscountTokenStatus{},
+	)
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+		&MsgCreateMembershipToken{},
+	)
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+		&MsgCreateMembershipTokenStatus{},
+	)
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+		&MsgDeleteMembershipTokenStatus{},
 	)
 	// this line is used by starport scaffolding # 3
 
