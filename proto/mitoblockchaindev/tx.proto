@@ -11,6 +11,8 @@ service Msg {
   rpc CreateDiscountTokenStatus(MsgCreateDiscountTokenStatus) returns (MsgCreateDiscountTokenStatusResponse);
   rpc DeleteDiscountTokenStatus(MsgDeleteDiscountTokenStatus) returns (MsgDeleteDiscountTokenStatusResponse);
   rpc CreateMembershipToken(MsgCreateMembershipToken) returns (MsgCreateMembershipTokenResponse);
+  rpc CreateMembershipTokenStatus(MsgCreateMembershipTokenStatus) returns (MsgCreateMembershipTokenStatusResponse);
+  rpc DeleteMembershipTokenStatus(MsgDeleteMembershipTokenStatus) returns (MsgDeleteMembershipTokenStatusResponse);
 // this line is used by starport scaffolding # proto/tx/rpc
 }
 
@@ -63,9 +65,33 @@ message MsgCreateMembershipToken {
   string membershipDuration = 6;
   string eligibleCompanies = 7;
   string expiryDate = 8;
+  uint64 id = 9;
 }
 
 message MsgCreateMembershipTokenResponse {
+  uint64 id = 1;
+}
+
+message MsgCreateMembershipTokenStatus {
+  string creator = 1;
+  uint64 tokenID = 2;
+  string timestamp = 3;
+  string status = 4;
+  uint64 id = 5;
+}
+
+message MsgCreateMembershipTokenStatusResponse {
+  uint64 id = 1;
+}
+
+message MsgDeleteMembershipTokenStatus {
+  string creator = 1;
+  uint64 membershipTokenStatusID = 2;
+  uint64 tokenID = 3;
+  uint64 id = 4;
+}
+
+message MsgDeleteMembershipTokenStatusResponse {
   uint64 id = 1;
 }
 
