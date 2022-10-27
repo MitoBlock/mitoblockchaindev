@@ -40,6 +40,14 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgCreateMembershipToken int = 100
 
+	opWeightMsgCreateMembershipTokenStatus = "op_weight_msg_create_membership_token_status"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateMembershipTokenStatus int = 100
+
+	opWeightMsgDeleteMembershipTokenStatus = "op_weight_msg_delete_membership_token_status"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteMembershipTokenStatus int = 100
+
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -116,6 +124,28 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 	operations = append(operations, simulation.NewWeightedOperation(
 		weightMsgCreateMembershipToken,
 		mitoblockchaindevsimulation.SimulateMsgCreateMembershipToken(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgCreateMembershipTokenStatus int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateMembershipTokenStatus, &weightMsgCreateMembershipTokenStatus, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateMembershipTokenStatus = defaultWeightMsgCreateMembershipTokenStatus
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateMembershipTokenStatus,
+		mitoblockchaindevsimulation.SimulateMsgCreateMembershipTokenStatus(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteMembershipTokenStatus int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteMembershipTokenStatus, &weightMsgDeleteMembershipTokenStatus, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteMembershipTokenStatus = defaultWeightMsgDeleteMembershipTokenStatus
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteMembershipTokenStatus,
+		mitoblockchaindevsimulation.SimulateMsgDeleteMembershipTokenStatus(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	// this line is used by starport scaffolding # simapp/module/operation

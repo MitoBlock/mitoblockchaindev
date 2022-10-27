@@ -428,6 +428,7 @@ type MsgCreateMembershipToken struct {
 	MembershipDuration string `protobuf:"bytes,6,opt,name=membershipDuration,proto3" json:"membershipDuration,omitempty"`
 	EligibleCompanies  string `protobuf:"bytes,7,opt,name=eligibleCompanies,proto3" json:"eligibleCompanies,omitempty"`
 	ExpiryDate         string `protobuf:"bytes,8,opt,name=expiryDate,proto3" json:"expiryDate,omitempty"`
+	Id                 uint64 `protobuf:"varint,9,opt,name=id,proto3" json:"id,omitempty"`
 }
 
 func (m *MsgCreateMembershipToken) Reset()         { *m = MsgCreateMembershipToken{} }
@@ -519,6 +520,13 @@ func (m *MsgCreateMembershipToken) GetExpiryDate() string {
 	return ""
 }
 
+func (m *MsgCreateMembershipToken) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
 type MsgCreateMembershipTokenResponse struct {
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
@@ -563,6 +571,242 @@ func (m *MsgCreateMembershipTokenResponse) GetId() uint64 {
 	return 0
 }
 
+type MsgCreateMembershipTokenStatus struct {
+	Creator   string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	TokenID   uint64 `protobuf:"varint,2,opt,name=tokenID,proto3" json:"tokenID,omitempty"`
+	Timestamp string `protobuf:"bytes,3,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Status    string `protobuf:"bytes,4,opt,name=status,proto3" json:"status,omitempty"`
+	Id        uint64 `protobuf:"varint,5,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgCreateMembershipTokenStatus) Reset()         { *m = MsgCreateMembershipTokenStatus{} }
+func (m *MsgCreateMembershipTokenStatus) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateMembershipTokenStatus) ProtoMessage()    {}
+func (*MsgCreateMembershipTokenStatus) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7abcb4974ad20c6b, []int{8}
+}
+func (m *MsgCreateMembershipTokenStatus) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateMembershipTokenStatus) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateMembershipTokenStatus.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateMembershipTokenStatus) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateMembershipTokenStatus.Merge(m, src)
+}
+func (m *MsgCreateMembershipTokenStatus) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateMembershipTokenStatus) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateMembershipTokenStatus.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateMembershipTokenStatus proto.InternalMessageInfo
+
+func (m *MsgCreateMembershipTokenStatus) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgCreateMembershipTokenStatus) GetTokenID() uint64 {
+	if m != nil {
+		return m.TokenID
+	}
+	return 0
+}
+
+func (m *MsgCreateMembershipTokenStatus) GetTimestamp() string {
+	if m != nil {
+		return m.Timestamp
+	}
+	return ""
+}
+
+func (m *MsgCreateMembershipTokenStatus) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *MsgCreateMembershipTokenStatus) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgCreateMembershipTokenStatusResponse struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgCreateMembershipTokenStatusResponse) Reset() {
+	*m = MsgCreateMembershipTokenStatusResponse{}
+}
+func (m *MsgCreateMembershipTokenStatusResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateMembershipTokenStatusResponse) ProtoMessage()    {}
+func (*MsgCreateMembershipTokenStatusResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7abcb4974ad20c6b, []int{9}
+}
+func (m *MsgCreateMembershipTokenStatusResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateMembershipTokenStatusResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateMembershipTokenStatusResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateMembershipTokenStatusResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateMembershipTokenStatusResponse.Merge(m, src)
+}
+func (m *MsgCreateMembershipTokenStatusResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateMembershipTokenStatusResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateMembershipTokenStatusResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateMembershipTokenStatusResponse proto.InternalMessageInfo
+
+func (m *MsgCreateMembershipTokenStatusResponse) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgDeleteMembershipTokenStatus struct {
+	Creator                 string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	MembershipTokenStatusID uint64 `protobuf:"varint,2,opt,name=membershipTokenStatusID,proto3" json:"membershipTokenStatusID,omitempty"`
+	TokenID                 uint64 `protobuf:"varint,3,opt,name=tokenID,proto3" json:"tokenID,omitempty"`
+	Id                      uint64 `protobuf:"varint,4,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgDeleteMembershipTokenStatus) Reset()         { *m = MsgDeleteMembershipTokenStatus{} }
+func (m *MsgDeleteMembershipTokenStatus) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteMembershipTokenStatus) ProtoMessage()    {}
+func (*MsgDeleteMembershipTokenStatus) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7abcb4974ad20c6b, []int{10}
+}
+func (m *MsgDeleteMembershipTokenStatus) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteMembershipTokenStatus) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteMembershipTokenStatus.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteMembershipTokenStatus) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteMembershipTokenStatus.Merge(m, src)
+}
+func (m *MsgDeleteMembershipTokenStatus) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteMembershipTokenStatus) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteMembershipTokenStatus.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteMembershipTokenStatus proto.InternalMessageInfo
+
+func (m *MsgDeleteMembershipTokenStatus) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgDeleteMembershipTokenStatus) GetMembershipTokenStatusID() uint64 {
+	if m != nil {
+		return m.MembershipTokenStatusID
+	}
+	return 0
+}
+
+func (m *MsgDeleteMembershipTokenStatus) GetTokenID() uint64 {
+	if m != nil {
+		return m.TokenID
+	}
+	return 0
+}
+
+func (m *MsgDeleteMembershipTokenStatus) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgDeleteMembershipTokenStatusResponse struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgDeleteMembershipTokenStatusResponse) Reset() {
+	*m = MsgDeleteMembershipTokenStatusResponse{}
+}
+func (m *MsgDeleteMembershipTokenStatusResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteMembershipTokenStatusResponse) ProtoMessage()    {}
+func (*MsgDeleteMembershipTokenStatusResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7abcb4974ad20c6b, []int{11}
+}
+func (m *MsgDeleteMembershipTokenStatusResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteMembershipTokenStatusResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteMembershipTokenStatusResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteMembershipTokenStatusResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteMembershipTokenStatusResponse.Merge(m, src)
+}
+func (m *MsgDeleteMembershipTokenStatusResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteMembershipTokenStatusResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteMembershipTokenStatusResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteMembershipTokenStatusResponse proto.InternalMessageInfo
+
+func (m *MsgDeleteMembershipTokenStatusResponse) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*MsgCreateDiscountToken)(nil), "mitoblockchaindev.mitoblockchaindev.MsgCreateDiscountToken")
 	proto.RegisterType((*MsgCreateDiscountTokenResponse)(nil), "mitoblockchaindev.mitoblockchaindev.MsgCreateDiscountTokenResponse")
@@ -572,47 +816,56 @@ func init() {
 	proto.RegisterType((*MsgDeleteDiscountTokenStatusResponse)(nil), "mitoblockchaindev.mitoblockchaindev.MsgDeleteDiscountTokenStatusResponse")
 	proto.RegisterType((*MsgCreateMembershipToken)(nil), "mitoblockchaindev.mitoblockchaindev.MsgCreateMembershipToken")
 	proto.RegisterType((*MsgCreateMembershipTokenResponse)(nil), "mitoblockchaindev.mitoblockchaindev.MsgCreateMembershipTokenResponse")
+	proto.RegisterType((*MsgCreateMembershipTokenStatus)(nil), "mitoblockchaindev.mitoblockchaindev.MsgCreateMembershipTokenStatus")
+	proto.RegisterType((*MsgCreateMembershipTokenStatusResponse)(nil), "mitoblockchaindev.mitoblockchaindev.MsgCreateMembershipTokenStatusResponse")
+	proto.RegisterType((*MsgDeleteMembershipTokenStatus)(nil), "mitoblockchaindev.mitoblockchaindev.MsgDeleteMembershipTokenStatus")
+	proto.RegisterType((*MsgDeleteMembershipTokenStatusResponse)(nil), "mitoblockchaindev.mitoblockchaindev.MsgDeleteMembershipTokenStatusResponse")
 }
 
 func init() { proto.RegisterFile("mitoblockchaindev/tx.proto", fileDescriptor_7abcb4974ad20c6b) }
 
 var fileDescriptor_7abcb4974ad20c6b = []byte{
-	// 546 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x55, 0xbf, 0x6f, 0xd3, 0x40,
-	0x14, 0xee, 0xe5, 0x77, 0x9e, 0x00, 0x89, 0x83, 0x56, 0x47, 0x54, 0x59, 0x51, 0xe8, 0x50, 0x09,
-	0x94, 0xa2, 0x82, 0x58, 0x10, 0x03, 0x24, 0x1d, 0x3a, 0x84, 0x21, 0x54, 0x0c, 0x6c, 0x17, 0xfb,
-	0x29, 0x3d, 0xd5, 0xf6, 0x59, 0xbe, 0x4b, 0x95, 0xfc, 0x17, 0x6c, 0x65, 0x61, 0x63, 0xe1, 0xff,
-	0x60, 0x60, 0xec, 0xc8, 0x88, 0x92, 0x7f, 0x04, 0xe5, 0xe2, 0x98, 0x3a, 0xb6, 0xdb, 0x44, 0x59,
-	0x18, 0xdf, 0xfb, 0xde, 0x7b, 0xf7, 0xbd, 0xcf, 0xfe, 0xee, 0xa0, 0xe1, 0x09, 0x2d, 0x07, 0xae,
-	0xb4, 0x2f, 0xec, 0x73, 0x2e, 0x7c, 0x07, 0x2f, 0x8f, 0xf4, 0xb8, 0x1d, 0x84, 0x52, 0x4b, 0xfa,
-	0x34, 0x85, 0xb5, 0x53, 0x99, 0xd6, 0xcf, 0x02, 0xec, 0xf5, 0xd4, 0xb0, 0x13, 0x22, 0xd7, 0xd8,
-	0x15, 0xca, 0x96, 0x23, 0x5f, 0x9f, 0xc9, 0x0b, 0xf4, 0x29, 0x83, 0xaa, 0x3d, 0x4f, 0xcb, 0x90,
-	0x91, 0x26, 0x39, 0xac, 0xf7, 0x97, 0x21, 0xdd, 0x87, 0xba, 0x16, 0x1e, 0x2a, 0xcd, 0xbd, 0x80,
-	0x15, 0x0c, 0xf6, 0x2f, 0x41, 0x5b, 0x70, 0x8f, 0xdb, 0x5a, 0x5c, 0x0a, 0x3d, 0xf9, 0xc0, 0x3d,
-	0x64, 0x45, 0x53, 0x90, 0xc8, 0xd1, 0xc7, 0x50, 0x56, 0xb6, 0x0c, 0x91, 0x95, 0x0c, 0xb8, 0x08,
-	0xe6, 0x27, 0x7a, 0xa8, 0x14, 0x1f, 0x22, 0x2b, 0x2f, 0x4e, 0x8c, 0x42, 0x7a, 0x00, 0xf7, 0x9d,
-	0x88, 0xdc, 0x27, 0xee, 0x8e, 0x90, 0x55, 0x0c, 0x9e, 0x4c, 0xd2, 0xe7, 0xf0, 0x10, 0x5d, 0x31,
-	0x14, 0x03, 0x17, 0x3b, 0xd2, 0x0b, 0xb8, 0x2f, 0x50, 0xb1, 0xaa, 0xa9, 0x4c, 0x03, 0xb4, 0x01,
-	0x35, 0xa1, 0xd1, 0x3b, 0x9b, 0x04, 0xc8, 0x6a, 0xa6, 0x28, 0x8e, 0xa9, 0x05, 0x80, 0xe3, 0x40,
-	0x84, 0x93, 0x2e, 0xd7, 0xc8, 0xea, 0x06, 0xbd, 0x91, 0xa1, 0x0f, 0xa0, 0x20, 0x1c, 0x06, 0x4d,
-	0x72, 0x58, 0xea, 0x17, 0x84, 0xd3, 0x7a, 0x01, 0x56, 0xb6, 0x8a, 0x7d, 0x54, 0x81, 0xf4, 0xd5,
-	0xb2, 0x83, 0xc4, 0x1d, 0x5f, 0x09, 0xec, 0x67, 0xb7, 0x7c, 0xd4, 0x5c, 0x8f, 0xd4, 0x2d, 0xf2,
-	0x33, 0xa8, 0xea, 0x79, 0xe1, 0x69, 0xd7, 0x88, 0x5f, 0xea, 0x2f, 0xc3, 0xe4, 0x87, 0x29, 0xae,
-	0x7e, 0x98, 0x3d, 0xa8, 0x28, 0x33, 0x3b, 0x52, 0x3d, 0x8a, 0x22, 0x6a, 0xe5, 0x98, 0xda, 0x6b,
-	0x38, 0xb8, 0x8d, 0xd9, 0x5d, 0x2b, 0x75, 0xd1, 0xc5, 0x4d, 0x57, 0x7a, 0x05, 0xbb, 0x4e, 0xba,
-	0x21, 0x5e, 0x30, 0x1b, 0xbc, 0x29, 0x44, 0x31, 0x29, 0xc4, 0x82, 0x5a, 0x69, 0x65, 0xa5, 0x5c,
-	0x66, 0xb9, 0x2b, 0x7d, 0x2f, 0x00, 0x8b, 0xb5, 0xe8, 0xa1, 0x37, 0xc0, 0x50, 0x9d, 0x8b, 0xe0,
-	0xff, 0x33, 0x48, 0x1b, 0xa8, 0x17, 0xd3, 0xeb, 0x8e, 0x42, 0xae, 0x85, 0xf4, 0x23, 0x97, 0x64,
-	0x20, 0x1b, 0x5a, 0x25, 0x69, 0x87, 0xda, 0xaa, 0x1d, 0x5a, 0xc7, 0xd0, 0xcc, 0x53, 0x29, 0x4f,
-	0xda, 0xe3, 0xab, 0x32, 0x14, 0x7b, 0x6a, 0x48, 0xaf, 0x08, 0x3c, 0xca, 0xba, 0x7e, 0xde, 0xb4,
-	0xd7, 0xb8, 0xbf, 0xda, 0xd9, 0x3f, 0x6a, 0xa3, 0xb3, 0x45, 0x73, 0xcc, 0xf8, 0x07, 0x81, 0x27,
-	0xf9, 0xfe, 0x7c, 0xb7, 0xc5, 0x11, 0x8b, 0x11, 0x8d, 0xd3, 0xad, 0x47, 0x24, 0xb8, 0xe6, 0x1b,
-	0x6f, 0x6d, 0xae, 0xb9, 0x23, 0xd6, 0xe7, 0x7a, 0xb7, 0xc9, 0xbe, 0x11, 0xd8, 0xcd, 0x76, 0xd4,
-	0xdb, 0xcd, 0x04, 0x59, 0x69, 0x6f, 0x9c, 0x6c, 0xd5, 0xbe, 0xe4, 0xf7, 0xfe, 0xe4, 0xd7, 0xd4,
-	0x22, 0xd7, 0x53, 0x8b, 0xfc, 0x99, 0x5a, 0xe4, 0xcb, 0xcc, 0xda, 0xb9, 0x9e, 0x59, 0x3b, 0xbf,
-	0x67, 0xd6, 0xce, 0xe7, 0x67, 0xe9, 0xe7, 0x76, 0x7c, 0x94, 0xf1, 0x04, 0x4f, 0x02, 0x54, 0x83,
-	0x8a, 0x79, 0x86, 0x5f, 0xfe, 0x0d, 0x00, 0x00, 0xff, 0xff, 0xa7, 0xe2, 0x30, 0x12, 0xa4, 0x07,
-	0x00, 0x00,
+	// 631 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x56, 0x4f, 0x6f, 0xd3, 0x4e,
+	0x10, 0xed, 0x26, 0x69, 0xfe, 0x8c, 0x7e, 0x3f, 0x24, 0x16, 0x5a, 0x96, 0x50, 0x59, 0x51, 0xa8,
+	0x50, 0x25, 0x50, 0x8a, 0x0a, 0x42, 0x95, 0x10, 0x07, 0x48, 0x7a, 0xa8, 0x50, 0x38, 0x84, 0x8a,
+	0x03, 0x37, 0xc7, 0x19, 0xa5, 0xab, 0xc6, 0x7f, 0xe4, 0xdd, 0x54, 0xc9, 0xb7, 0xe0, 0x06, 0x42,
+	0x82, 0x3b, 0x27, 0x2e, 0x7c, 0x04, 0x0e, 0x1c, 0x7b, 0xe4, 0x88, 0x92, 0x8f, 0xc1, 0x05, 0xc5,
+	0x76, 0x4c, 0x9c, 0x78, 0xdd, 0x58, 0x46, 0x82, 0xe3, 0xcc, 0xec, 0xdb, 0x7d, 0xef, 0xad, 0x67,
+	0xbc, 0x50, 0x35, 0xb9, 0xb4, 0xbb, 0x03, 0xdb, 0x38, 0x33, 0x4e, 0x75, 0x6e, 0xf5, 0xf0, 0x7c,
+	0x5f, 0x8e, 0x1a, 0x8e, 0x6b, 0x4b, 0x9b, 0xde, 0x5e, 0xa9, 0x35, 0x56, 0x32, 0xf5, 0xaf, 0x39,
+	0xd8, 0x6e, 0x8b, 0x7e, 0xd3, 0x45, 0x5d, 0x62, 0x8b, 0x0b, 0xc3, 0x1e, 0x5a, 0xf2, 0xc4, 0x3e,
+	0x43, 0x8b, 0x32, 0x28, 0x19, 0xb3, 0xb4, 0xed, 0x32, 0x52, 0x23, 0x7b, 0x95, 0xce, 0x3c, 0xa4,
+	0x3b, 0x50, 0x91, 0xdc, 0x44, 0x21, 0x75, 0xd3, 0x61, 0x39, 0xaf, 0xf6, 0x3b, 0x41, 0xeb, 0xf0,
+	0x9f, 0x6e, 0x48, 0x7e, 0xce, 0xe5, 0xf8, 0x85, 0x6e, 0x22, 0xcb, 0x7b, 0x0b, 0x22, 0x39, 0x7a,
+	0x1d, 0x36, 0x85, 0x61, 0xbb, 0xc8, 0x0a, 0x5e, 0xd1, 0x0f, 0x66, 0x27, 0x9a, 0x28, 0x84, 0xde,
+	0x47, 0xb6, 0xe9, 0x9f, 0x18, 0x84, 0x74, 0x17, 0xfe, 0xef, 0x05, 0xe4, 0x5e, 0xe9, 0x83, 0x21,
+	0xb2, 0xa2, 0x57, 0x8f, 0x26, 0xe9, 0x3d, 0xb8, 0x8a, 0x03, 0xde, 0xe7, 0xdd, 0x01, 0x36, 0x6d,
+	0xd3, 0xd1, 0x2d, 0x8e, 0x82, 0x95, 0xbc, 0x95, 0xab, 0x05, 0x5a, 0x85, 0x32, 0x97, 0x68, 0x9e,
+	0x8c, 0x1d, 0x64, 0x65, 0x6f, 0x51, 0x18, 0x53, 0x0d, 0x00, 0x47, 0x0e, 0x77, 0xc7, 0x2d, 0x5d,
+	0x22, 0xab, 0x78, 0xd5, 0x85, 0x0c, 0xbd, 0x02, 0x39, 0xde, 0x63, 0x50, 0x23, 0x7b, 0x85, 0x4e,
+	0x8e, 0xf7, 0xea, 0xf7, 0x41, 0x8b, 0x77, 0xb1, 0x83, 0xc2, 0xb1, 0x2d, 0x31, 0x47, 0x90, 0x10,
+	0xf1, 0x8e, 0xc0, 0x4e, 0x3c, 0xe4, 0xa5, 0xd4, 0xe5, 0x50, 0x24, 0xd8, 0xcf, 0xa0, 0x24, 0x67,
+	0x0b, 0x8f, 0x5b, 0x9e, 0xf9, 0x85, 0xce, 0x3c, 0x8c, 0x5e, 0x4c, 0x7e, 0xf9, 0x62, 0xb6, 0xa1,
+	0x28, 0xbc, 0xbd, 0x03, 0xd7, 0x83, 0x28, 0xa0, 0xb6, 0x19, 0x52, 0x7b, 0x04, 0xbb, 0x49, 0xcc,
+	0x2e, 0x93, 0xd4, 0xc2, 0x01, 0xa6, 0x95, 0xf4, 0x10, 0xb6, 0x7a, 0xab, 0x80, 0x50, 0x60, 0x7c,
+	0x71, 0xd1, 0x88, 0x7c, 0xd4, 0x08, 0x9f, 0x5a, 0x61, 0x49, 0x92, 0x92, 0x99, 0x52, 0xd2, 0x97,
+	0x1c, 0xb0, 0xd0, 0x8b, 0x36, 0x9a, 0x5d, 0x74, 0xc5, 0x29, 0x77, 0xfe, 0xbd, 0x06, 0x69, 0x00,
+	0x35, 0x43, 0x7a, 0xad, 0xa1, 0xab, 0x4b, 0x6e, 0x5b, 0x41, 0x97, 0xc4, 0x54, 0x52, 0xb6, 0x4a,
+	0xb4, 0x1d, 0xca, 0x8a, 0x76, 0xa8, 0x84, 0xb6, 0x1d, 0x40, 0x4d, 0xe5, 0x9a, 0xd2, 0xea, 0xf7,
+	0x64, 0xa1, 0x87, 0x96, 0x40, 0x7f, 0xbd, 0x25, 0x0e, 0xe1, 0x4e, 0x32, 0x37, 0xa5, 0xac, 0x8f,
+	0xbe, 0x2c, 0xff, 0xd3, 0x4b, 0x2b, 0xeb, 0x10, 0x6e, 0x98, 0x71, 0x90, 0x50, 0xa6, 0xaa, 0x9c,
+	0xa2, 0x35, 0x7c, 0x69, 0x09, 0xfc, 0x54, 0xd2, 0x0e, 0x7e, 0x96, 0x20, 0xdf, 0x16, 0x7d, 0xfa,
+	0x96, 0xc0, 0xb5, 0xb8, 0x1f, 0xc8, 0xe3, 0xc6, 0x1a, 0x7f, 0xa0, 0x46, 0xfc, 0xa8, 0xa9, 0x36,
+	0x33, 0x80, 0x43, 0xc6, 0x9f, 0x08, 0xdc, 0x54, 0x4f, 0xd8, 0xa7, 0x19, 0x8e, 0xf0, 0xb7, 0xa8,
+	0x1e, 0x67, 0xde, 0x22, 0xc2, 0x55, 0x3d, 0x3a, 0xd7, 0xe6, 0xaa, 0xdc, 0x62, 0x7d, 0xae, 0x97,
+	0x8f, 0xc9, 0x0f, 0x04, 0xb6, 0xe2, 0x67, 0xe2, 0x93, 0x74, 0x86, 0x2c, 0xc1, 0xab, 0x47, 0x99,
+	0xe0, 0x21, 0xbf, 0xcf, 0x04, 0x6e, 0x25, 0x0d, 0x92, 0x66, 0xa6, 0x63, 0x02, 0x3f, 0x9f, 0xff,
+	0x81, 0x4d, 0x22, 0x8c, 0x93, 0x66, 0x44, 0x33, 0xdd, 0xe5, 0x65, 0x64, 0xbc, 0xc6, 0x34, 0x78,
+	0x76, 0xf4, 0x6d, 0xa2, 0x91, 0x8b, 0x89, 0x46, 0x7e, 0x4c, 0x34, 0xf2, 0x66, 0xaa, 0x6d, 0x5c,
+	0x4c, 0xb5, 0x8d, 0xef, 0x53, 0x6d, 0xe3, 0xf5, 0xdd, 0xd5, 0x47, 0xe9, 0x68, 0x3f, 0xe6, 0xa1,
+	0x3a, 0x76, 0x50, 0x74, 0x8b, 0xde, 0x63, 0xf5, 0xc1, 0xaf, 0x00, 0x00, 0x00, 0xff, 0xff, 0xb9,
+	0xec, 0x7b, 0x7d, 0xca, 0x0a, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -631,6 +884,8 @@ type MsgClient interface {
 	CreateDiscountTokenStatus(ctx context.Context, in *MsgCreateDiscountTokenStatus, opts ...grpc.CallOption) (*MsgCreateDiscountTokenStatusResponse, error)
 	DeleteDiscountTokenStatus(ctx context.Context, in *MsgDeleteDiscountTokenStatus, opts ...grpc.CallOption) (*MsgDeleteDiscountTokenStatusResponse, error)
 	CreateMembershipToken(ctx context.Context, in *MsgCreateMembershipToken, opts ...grpc.CallOption) (*MsgCreateMembershipTokenResponse, error)
+	CreateMembershipTokenStatus(ctx context.Context, in *MsgCreateMembershipTokenStatus, opts ...grpc.CallOption) (*MsgCreateMembershipTokenStatusResponse, error)
+	DeleteMembershipTokenStatus(ctx context.Context, in *MsgDeleteMembershipTokenStatus, opts ...grpc.CallOption) (*MsgDeleteMembershipTokenStatusResponse, error)
 }
 
 type msgClient struct {
@@ -677,12 +932,32 @@ func (c *msgClient) CreateMembershipToken(ctx context.Context, in *MsgCreateMemb
 	return out, nil
 }
 
+func (c *msgClient) CreateMembershipTokenStatus(ctx context.Context, in *MsgCreateMembershipTokenStatus, opts ...grpc.CallOption) (*MsgCreateMembershipTokenStatusResponse, error) {
+	out := new(MsgCreateMembershipTokenStatusResponse)
+	err := c.cc.Invoke(ctx, "/mitoblockchaindev.mitoblockchaindev.Msg/CreateMembershipTokenStatus", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) DeleteMembershipTokenStatus(ctx context.Context, in *MsgDeleteMembershipTokenStatus, opts ...grpc.CallOption) (*MsgDeleteMembershipTokenStatusResponse, error) {
+	out := new(MsgDeleteMembershipTokenStatusResponse)
+	err := c.cc.Invoke(ctx, "/mitoblockchaindev.mitoblockchaindev.Msg/DeleteMembershipTokenStatus", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	CreateDiscountToken(context.Context, *MsgCreateDiscountToken) (*MsgCreateDiscountTokenResponse, error)
 	CreateDiscountTokenStatus(context.Context, *MsgCreateDiscountTokenStatus) (*MsgCreateDiscountTokenStatusResponse, error)
 	DeleteDiscountTokenStatus(context.Context, *MsgDeleteDiscountTokenStatus) (*MsgDeleteDiscountTokenStatusResponse, error)
 	CreateMembershipToken(context.Context, *MsgCreateMembershipToken) (*MsgCreateMembershipTokenResponse, error)
+	CreateMembershipTokenStatus(context.Context, *MsgCreateMembershipTokenStatus) (*MsgCreateMembershipTokenStatusResponse, error)
+	DeleteMembershipTokenStatus(context.Context, *MsgDeleteMembershipTokenStatus) (*MsgDeleteMembershipTokenStatusResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -700,6 +975,12 @@ func (*UnimplementedMsgServer) DeleteDiscountTokenStatus(ctx context.Context, re
 }
 func (*UnimplementedMsgServer) CreateMembershipToken(ctx context.Context, req *MsgCreateMembershipToken) (*MsgCreateMembershipTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateMembershipToken not implemented")
+}
+func (*UnimplementedMsgServer) CreateMembershipTokenStatus(ctx context.Context, req *MsgCreateMembershipTokenStatus) (*MsgCreateMembershipTokenStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateMembershipTokenStatus not implemented")
+}
+func (*UnimplementedMsgServer) DeleteMembershipTokenStatus(ctx context.Context, req *MsgDeleteMembershipTokenStatus) (*MsgDeleteMembershipTokenStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteMembershipTokenStatus not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -778,6 +1059,42 @@ func _Msg_CreateMembershipToken_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_CreateMembershipTokenStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateMembershipTokenStatus)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).CreateMembershipTokenStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/mitoblockchaindev.mitoblockchaindev.Msg/CreateMembershipTokenStatus",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).CreateMembershipTokenStatus(ctx, req.(*MsgCreateMembershipTokenStatus))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_DeleteMembershipTokenStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDeleteMembershipTokenStatus)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).DeleteMembershipTokenStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/mitoblockchaindev.mitoblockchaindev.Msg/DeleteMembershipTokenStatus",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).DeleteMembershipTokenStatus(ctx, req.(*MsgDeleteMembershipTokenStatus))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "mitoblockchaindev.mitoblockchaindev.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -797,6 +1114,14 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateMembershipToken",
 			Handler:    _Msg_CreateMembershipToken_Handler,
+		},
+		{
+			MethodName: "CreateMembershipTokenStatus",
+			Handler:    _Msg_CreateMembershipTokenStatus_Handler,
+		},
+		{
+			MethodName: "DeleteMembershipTokenStatus",
+			Handler:    _Msg_DeleteMembershipTokenStatus_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1097,6 +1422,11 @@ func (m *MsgCreateMembershipToken) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x48
+	}
 	if len(m.ExpiryDate) > 0 {
 		i -= len(m.ExpiryDate)
 		copy(dAtA[i:], m.ExpiryDate)
@@ -1172,6 +1502,161 @@ func (m *MsgCreateMembershipTokenResponse) MarshalTo(dAtA []byte) (int, error) {
 }
 
 func (m *MsgCreateMembershipTokenResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCreateMembershipTokenStatus) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateMembershipTokenStatus) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateMembershipTokenStatus) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x28
+	}
+	if len(m.Status) > 0 {
+		i -= len(m.Status)
+		copy(dAtA[i:], m.Status)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Status)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if len(m.Timestamp) > 0 {
+		i -= len(m.Timestamp)
+		copy(dAtA[i:], m.Timestamp)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Timestamp)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if m.TokenID != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.TokenID))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCreateMembershipTokenStatusResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateMembershipTokenStatusResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateMembershipTokenStatusResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteMembershipTokenStatus) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteMembershipTokenStatus) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteMembershipTokenStatus) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x20
+	}
+	if m.TokenID != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.TokenID))
+		i--
+		dAtA[i] = 0x18
+	}
+	if m.MembershipTokenStatusID != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.MembershipTokenStatusID))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteMembershipTokenStatusResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteMembershipTokenStatusResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteMembershipTokenStatusResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -1366,10 +1851,86 @@ func (m *MsgCreateMembershipToken) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
 	return n
 }
 
 func (m *MsgCreateMembershipTokenResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *MsgCreateMembershipTokenStatus) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.TokenID != 0 {
+		n += 1 + sovTx(uint64(m.TokenID))
+	}
+	l = len(m.Timestamp)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Status)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *MsgCreateMembershipTokenStatusResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *MsgDeleteMembershipTokenStatus) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.MembershipTokenStatusID != 0 {
+		n += 1 + sovTx(uint64(m.MembershipTokenStatusID))
+	}
+	if m.TokenID != 0 {
+		n += 1 + sovTx(uint64(m.TokenID))
+	}
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *MsgDeleteMembershipTokenStatusResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -2559,6 +3120,25 @@ func (m *MsgCreateMembershipToken) Unmarshal(dAtA []byte) error {
 			}
 			m.ExpiryDate = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
+		case 9:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
 		default:
 			iNdEx = preIndex
 			skippy, err := skipTx(dAtA[iNdEx:])
@@ -2607,6 +3187,467 @@ func (m *MsgCreateMembershipTokenResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgCreateMembershipTokenResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateMembershipTokenStatus) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateMembershipTokenStatus: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateMembershipTokenStatus: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TokenID", wireType)
+			}
+			m.TokenID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.TokenID |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Timestamp", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Timestamp = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Status", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Status = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 5:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateMembershipTokenStatusResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateMembershipTokenStatusResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateMembershipTokenStatusResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteMembershipTokenStatus) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteMembershipTokenStatus: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteMembershipTokenStatus: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MembershipTokenStatusID", wireType)
+			}
+			m.MembershipTokenStatusID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.MembershipTokenStatusID |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TokenID", wireType)
+			}
+			m.TokenID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.TokenID |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteMembershipTokenStatusResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteMembershipTokenStatusResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteMembershipTokenStatusResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:

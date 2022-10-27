@@ -15,6 +15,13 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 
 	// Set discountTokenStatus count
 	k.SetDiscountTokenStatusCount(ctx, genState.DiscountTokenStatusCount)
+	// Set all the membershipTokenStatus
+	for _, elem := range genState.MembershipTokenStatusList {
+		k.SetMembershipTokenStatus(ctx, elem)
+	}
+
+	// Set membershipTokenStatus count
+	k.SetMembershipTokenStatusCount(ctx, genState.MembershipTokenStatusCount)
 	// this line is used by starport scaffolding # genesis/module/init
 	k.SetParams(ctx, genState.Params)
 }
@@ -26,6 +33,8 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 
 	genesis.DiscountTokenStatusList = k.GetAllDiscountTokenStatus(ctx)
 	genesis.DiscountTokenStatusCount = k.GetDiscountTokenStatusCount(ctx)
+	genesis.MembershipTokenStatusList = k.GetAllMembershipTokenStatus(ctx)
+	genesis.MembershipTokenStatusCount = k.GetMembershipTokenStatusCount(ctx)
 	// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis

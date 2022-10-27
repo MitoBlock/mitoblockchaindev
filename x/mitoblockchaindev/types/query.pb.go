@@ -610,6 +610,305 @@ func (m *QueryMembershipTokensResponse) GetPagination() *query.PageResponse {
 	return nil
 }
 
+type QueryGetMembershipTokenStatusRequest struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *QueryGetMembershipTokenStatusRequest) Reset()         { *m = QueryGetMembershipTokenStatusRequest{} }
+func (m *QueryGetMembershipTokenStatusRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetMembershipTokenStatusRequest) ProtoMessage()    {}
+func (*QueryGetMembershipTokenStatusRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9257a72cb45763f8, []int{12}
+}
+func (m *QueryGetMembershipTokenStatusRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetMembershipTokenStatusRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetMembershipTokenStatusRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetMembershipTokenStatusRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetMembershipTokenStatusRequest.Merge(m, src)
+}
+func (m *QueryGetMembershipTokenStatusRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetMembershipTokenStatusRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetMembershipTokenStatusRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetMembershipTokenStatusRequest proto.InternalMessageInfo
+
+func (m *QueryGetMembershipTokenStatusRequest) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type QueryGetMembershipTokenStatusResponse struct {
+	MembershipTokenStatus MembershipTokenStatus `protobuf:"bytes,1,opt,name=MembershipTokenStatus,proto3" json:"MembershipTokenStatus"`
+}
+
+func (m *QueryGetMembershipTokenStatusResponse) Reset()         { *m = QueryGetMembershipTokenStatusResponse{} }
+func (m *QueryGetMembershipTokenStatusResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetMembershipTokenStatusResponse) ProtoMessage()    {}
+func (*QueryGetMembershipTokenStatusResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9257a72cb45763f8, []int{13}
+}
+func (m *QueryGetMembershipTokenStatusResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetMembershipTokenStatusResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetMembershipTokenStatusResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetMembershipTokenStatusResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetMembershipTokenStatusResponse.Merge(m, src)
+}
+func (m *QueryGetMembershipTokenStatusResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetMembershipTokenStatusResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetMembershipTokenStatusResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetMembershipTokenStatusResponse proto.InternalMessageInfo
+
+func (m *QueryGetMembershipTokenStatusResponse) GetMembershipTokenStatus() MembershipTokenStatus {
+	if m != nil {
+		return m.MembershipTokenStatus
+	}
+	return MembershipTokenStatus{}
+}
+
+type QueryAllMembershipTokenStatusRequest struct {
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllMembershipTokenStatusRequest) Reset()         { *m = QueryAllMembershipTokenStatusRequest{} }
+func (m *QueryAllMembershipTokenStatusRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryAllMembershipTokenStatusRequest) ProtoMessage()    {}
+func (*QueryAllMembershipTokenStatusRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9257a72cb45763f8, []int{14}
+}
+func (m *QueryAllMembershipTokenStatusRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllMembershipTokenStatusRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllMembershipTokenStatusRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllMembershipTokenStatusRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllMembershipTokenStatusRequest.Merge(m, src)
+}
+func (m *QueryAllMembershipTokenStatusRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllMembershipTokenStatusRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllMembershipTokenStatusRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllMembershipTokenStatusRequest proto.InternalMessageInfo
+
+func (m *QueryAllMembershipTokenStatusRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryAllMembershipTokenStatusResponse struct {
+	MembershipTokenStatus []MembershipTokenStatus `protobuf:"bytes,1,rep,name=MembershipTokenStatus,proto3" json:"MembershipTokenStatus"`
+	Pagination            *query.PageResponse     `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllMembershipTokenStatusResponse) Reset()         { *m = QueryAllMembershipTokenStatusResponse{} }
+func (m *QueryAllMembershipTokenStatusResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryAllMembershipTokenStatusResponse) ProtoMessage()    {}
+func (*QueryAllMembershipTokenStatusResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9257a72cb45763f8, []int{15}
+}
+func (m *QueryAllMembershipTokenStatusResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllMembershipTokenStatusResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllMembershipTokenStatusResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllMembershipTokenStatusResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllMembershipTokenStatusResponse.Merge(m, src)
+}
+func (m *QueryAllMembershipTokenStatusResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllMembershipTokenStatusResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllMembershipTokenStatusResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllMembershipTokenStatusResponse proto.InternalMessageInfo
+
+func (m *QueryAllMembershipTokenStatusResponse) GetMembershipTokenStatus() []MembershipTokenStatus {
+	if m != nil {
+		return m.MembershipTokenStatus
+	}
+	return nil
+}
+
+func (m *QueryAllMembershipTokenStatusResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryMembershipTokenStatusQRequest struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Adding pagination to request
+	Pagination *query.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryMembershipTokenStatusQRequest) Reset()         { *m = QueryMembershipTokenStatusQRequest{} }
+func (m *QueryMembershipTokenStatusQRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryMembershipTokenStatusQRequest) ProtoMessage()    {}
+func (*QueryMembershipTokenStatusQRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9257a72cb45763f8, []int{16}
+}
+func (m *QueryMembershipTokenStatusQRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryMembershipTokenStatusQRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryMembershipTokenStatusQRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryMembershipTokenStatusQRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryMembershipTokenStatusQRequest.Merge(m, src)
+}
+func (m *QueryMembershipTokenStatusQRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryMembershipTokenStatusQRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryMembershipTokenStatusQRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryMembershipTokenStatusQRequest proto.InternalMessageInfo
+
+func (m *QueryMembershipTokenStatusQRequest) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *QueryMembershipTokenStatusQRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryMembershipTokenStatusQResponse struct {
+	MembershipToken *MembershipToken `protobuf:"bytes,1,opt,name=MembershipToken,proto3" json:"MembershipToken,omitempty"`
+	// Returning a list of membership token status
+	MembershipTokenStatus []*MembershipTokenStatus `protobuf:"bytes,2,rep,name=MembershipTokenStatus,proto3" json:"MembershipTokenStatus,omitempty"`
+	// Adding pagination to response
+	Pagination *query.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryMembershipTokenStatusQResponse) Reset()         { *m = QueryMembershipTokenStatusQResponse{} }
+func (m *QueryMembershipTokenStatusQResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryMembershipTokenStatusQResponse) ProtoMessage()    {}
+func (*QueryMembershipTokenStatusQResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9257a72cb45763f8, []int{17}
+}
+func (m *QueryMembershipTokenStatusQResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryMembershipTokenStatusQResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryMembershipTokenStatusQResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryMembershipTokenStatusQResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryMembershipTokenStatusQResponse.Merge(m, src)
+}
+func (m *QueryMembershipTokenStatusQResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryMembershipTokenStatusQResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryMembershipTokenStatusQResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryMembershipTokenStatusQResponse proto.InternalMessageInfo
+
+func (m *QueryMembershipTokenStatusQResponse) GetMembershipToken() *MembershipToken {
+	if m != nil {
+		return m.MembershipToken
+	}
+	return nil
+}
+
+func (m *QueryMembershipTokenStatusQResponse) GetMembershipTokenStatus() []*MembershipTokenStatus {
+	if m != nil {
+		return m.MembershipTokenStatus
+	}
+	return nil
+}
+
+func (m *QueryMembershipTokenStatusQResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryParamsRequest)(nil), "mitoblockchaindev.mitoblockchaindev.QueryParamsRequest")
 	proto.RegisterType((*QueryParamsResponse)(nil), "mitoblockchaindev.mitoblockchaindev.QueryParamsResponse")
@@ -623,60 +922,77 @@ func init() {
 	proto.RegisterType((*QueryDiscountTokenStatusQResponse)(nil), "mitoblockchaindev.mitoblockchaindev.QueryDiscountTokenStatusQResponse")
 	proto.RegisterType((*QueryMembershipTokensRequest)(nil), "mitoblockchaindev.mitoblockchaindev.QueryMembershipTokensRequest")
 	proto.RegisterType((*QueryMembershipTokensResponse)(nil), "mitoblockchaindev.mitoblockchaindev.QueryMembershipTokensResponse")
+	proto.RegisterType((*QueryGetMembershipTokenStatusRequest)(nil), "mitoblockchaindev.mitoblockchaindev.QueryGetMembershipTokenStatusRequest")
+	proto.RegisterType((*QueryGetMembershipTokenStatusResponse)(nil), "mitoblockchaindev.mitoblockchaindev.QueryGetMembershipTokenStatusResponse")
+	proto.RegisterType((*QueryAllMembershipTokenStatusRequest)(nil), "mitoblockchaindev.mitoblockchaindev.QueryAllMembershipTokenStatusRequest")
+	proto.RegisterType((*QueryAllMembershipTokenStatusResponse)(nil), "mitoblockchaindev.mitoblockchaindev.QueryAllMembershipTokenStatusResponse")
+	proto.RegisterType((*QueryMembershipTokenStatusQRequest)(nil), "mitoblockchaindev.mitoblockchaindev.QueryMembershipTokenStatusQRequest")
+	proto.RegisterType((*QueryMembershipTokenStatusQResponse)(nil), "mitoblockchaindev.mitoblockchaindev.QueryMembershipTokenStatusQResponse")
 }
 
 func init() { proto.RegisterFile("mitoblockchaindev/query.proto", fileDescriptor_9257a72cb45763f8) }
 
 var fileDescriptor_9257a72cb45763f8 = []byte{
-	// 753 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x97, 0xcf, 0x4f, 0x13, 0x41,
-	0x14, 0xc7, 0x3b, 0x0b, 0x72, 0x78, 0x44, 0x34, 0x03, 0x31, 0x64, 0x85, 0x15, 0x97, 0x04, 0x89,
-	0x84, 0xdd, 0x50, 0x08, 0x12, 0x43, 0xc4, 0x56, 0x01, 0x39, 0x98, 0x40, 0xf5, 0x60, 0x3c, 0x88,
-	0xdb, 0x76, 0x2c, 0x2b, 0xdb, 0x9d, 0xa5, 0xb3, 0x25, 0xa2, 0xf1, 0xe2, 0x5f, 0x60, 0xe2, 0xc1,
-	0x7f, 0xc3, 0xf8, 0x17, 0x98, 0x78, 0xe1, 0x88, 0xf1, 0xa2, 0x17, 0x43, 0xc0, 0xbb, 0xfa, 0x1f,
-	0x98, 0xce, 0x4c, 0x95, 0xed, 0x6e, 0xcb, 0x76, 0x5b, 0x6e, 0xcd, 0xce, 0xfb, 0xf5, 0xf9, 0xbe,
-	0xb7, 0xf3, 0xb6, 0x30, 0x5a, 0xb6, 0x7d, 0x9a, 0x77, 0x68, 0x61, 0xbb, 0xb0, 0x65, 0xd9, 0x6e,
-	0x91, 0xec, 0x9a, 0x3b, 0x55, 0x52, 0xd9, 0x33, 0xbc, 0x0a, 0xf5, 0x29, 0x1e, 0x0f, 0x1d, 0x1b,
-	0xa1, 0x27, 0xea, 0x50, 0x89, 0x96, 0x28, 0xb7, 0x37, 0x6b, 0xbf, 0x84, 0xab, 0x3a, 0x52, 0xa2,
-	0xb4, 0xe4, 0x10, 0xd3, 0xf2, 0x6c, 0xd3, 0x72, 0x5d, 0xea, 0x5b, 0xbe, 0x4d, 0x5d, 0x26, 0x4f,
-	0xaf, 0x17, 0x28, 0x2b, 0x53, 0x66, 0xe6, 0x2d, 0x46, 0x44, 0x46, 0x73, 0x77, 0x26, 0x4f, 0x7c,
-	0x6b, 0xc6, 0xf4, 0xac, 0x92, 0xed, 0x72, 0x63, 0x69, 0xab, 0x85, 0x6b, 0xf4, 0xac, 0x8a, 0x55,
-	0xae, 0xc7, 0x9a, 0x0e, 0x9f, 0x17, 0x6d, 0x56, 0xa0, 0x55, 0xd7, 0xdf, 0xf4, 0xe9, 0x36, 0x71,
-	0x37, 0x99, 0x6f, 0xf9, 0xd5, 0xba, 0xf9, 0xc4, 0x69, 0xe6, 0xd2, 0x6e, 0x32, 0x6c, 0x57, 0x26,
-	0xe5, 0x3c, 0xa9, 0xb0, 0x2d, 0xdb, 0x3b, 0x69, 0xa9, 0x0f, 0x01, 0xde, 0xa8, 0x21, 0xac, 0xf3,
-	0xaa, 0x72, 0x64, 0xa7, 0x4a, 0x98, 0xaf, 0x3f, 0x85, 0xc1, 0xc0, 0x53, 0xe6, 0x51, 0x97, 0x11,
-	0xbc, 0x06, 0x7d, 0xa2, 0xfa, 0x61, 0x34, 0x86, 0x26, 0xfb, 0xd3, 0x53, 0x46, 0x0c, 0x8d, 0x0d,
-	0x11, 0x24, 0xdb, 0xbb, 0xff, 0xe3, 0x4a, 0x2a, 0x27, 0x03, 0xe8, 0x45, 0x50, 0x79, 0x86, 0xbb,
-	0xb2, 0xfc, 0x87, 0xb5, 0x9a, 0xea, 0xf9, 0xf1, 0x0a, 0xc0, 0x7f, 0x29, 0x65, 0xb2, 0x09, 0x43,
-	0xe8, 0x6e, 0xd4, 0x74, 0x37, 0x44, 0xa7, 0xa5, 0xee, 0xc6, 0xba, 0x55, 0x22, 0xd2, 0x37, 0x77,
-	0xc2, 0x53, 0xff, 0x84, 0xe0, 0x72, 0x64, 0x1a, 0x09, 0xf4, 0x08, 0xce, 0x07, 0x4e, 0x86, 0xd1,
-	0x58, 0xcf, 0x64, 0x7f, 0x3a, 0x1d, 0x8b, 0x2b, 0xe0, 0x99, 0x0b, 0x06, 0xc2, 0xab, 0x01, 0x02,
-	0x85, 0x13, 0x5c, 0x3b, 0x95, 0x40, 0x94, 0x15, 0x40, 0x98, 0x03, 0x9d, 0x13, 0xac, 0x12, 0x3f,
-	0x90, 0xe1, 0x01, 0x9f, 0x8b, 0xba, 0x60, 0x03, 0xa0, 0xd8, 0x45, 0x2e, 0x54, 0x6f, 0x4e, 0xb1,
-	0x8b, 0xfa, 0x7b, 0x04, 0xe3, 0x2d, 0xdd, 0xa4, 0x00, 0x1e, 0x0c, 0x46, 0x1c, 0x4b, 0xc5, 0x17,
-	0xda, 0x97, 0x41, 0xf8, 0xcb, 0x5e, 0x47, 0x85, 0xd6, 0x1d, 0xc9, 0x93, 0x71, 0x9c, 0x16, 0x3c,
-	0xdd, 0x1a, 0x80, 0xc3, 0xba, 0x0e, 0xcd, 0xd2, 0x9d, 0xa6, 0x43, 0xcf, 0x19, 0xe9, 0xd0, 0xbd,
-	0x01, 0x79, 0x09, 0x63, 0xe1, 0x11, 0x17, 0x49, 0x36, 0x9a, 0x8c, 0x47, 0x83, 0xbc, 0x4a, 0x62,
-	0x79, 0x3f, 0x2a, 0x70, 0xb5, 0x45, 0xf2, 0xe6, 0x6f, 0x19, 0xea, 0xce, 0x5b, 0xf6, 0x3c, 0xba,
-	0x6d, 0x4a, 0x67, 0x6d, 0x8b, 0xd3, 0xb0, 0x9e, 0xe4, 0x0d, 0x7b, 0x06, 0x23, 0x5c, 0xb3, 0xfb,
-	0xff, 0x6e, 0xe4, 0xb3, 0xb9, 0xfc, 0xf6, 0x11, 0x8c, 0x36, 0x49, 0x24, 0x1b, 0xf3, 0x04, 0x2e,
-	0x34, 0x9c, 0xc9, 0x89, 0x9f, 0x8b, 0x25, 0x5d, 0x83, 0x6f, 0xae, 0x31, 0x58, 0xd7, 0x66, 0x3c,
-	0xfd, 0x19, 0xe0, 0x1c, 0x47, 0xc1, 0x1f, 0x10, 0xf4, 0x89, 0x85, 0x82, 0x6f, 0xc4, 0x2a, 0x32,
-	0xbc, 0xdd, 0xd4, 0x85, 0xf6, 0x1d, 0x45, 0x4d, 0xfa, 0xec, 0x9b, 0xaf, 0x3f, 0xdf, 0x29, 0xd3,
-	0x78, 0xca, 0x8c, 0x58, 0xb0, 0x4d, 0x36, 0x3d, 0xfe, 0x82, 0x60, 0x20, 0xb8, 0x7f, 0xf0, 0x52,
-	0xfc, 0x0a, 0x22, 0x17, 0xa4, 0x7a, 0x3b, 0x79, 0x00, 0x89, 0xb2, 0xc8, 0x51, 0xe6, 0xf1, 0x5c,
-	0x2c, 0x94, 0xe0, 0x57, 0x06, 0xc3, 0x7f, 0x10, 0x44, 0xbf, 0x24, 0xf1, 0xeb, 0x6a, 0xb9, 0xd0,
-	0xd4, 0x7b, 0x9d, 0x07, 0x92, 0xa0, 0xab, 0x1c, 0x34, 0x83, 0x97, 0x12, 0x80, 0xca, 0xaf, 0x2f,
-	0xf3, 0x95, 0x5d, 0x7c, 0x8d, 0x7f, 0x21, 0xb8, 0x14, 0x91, 0x28, 0xe3, 0x38, 0xed, 0x60, 0xb7,
-	0xdc, 0x7b, 0xed, 0x60, 0xb7, 0xde, 0x68, 0x7a, 0x96, 0x63, 0x2f, 0xe2, 0x9b, 0xc9, 0xb1, 0xf1,
-	0x6f, 0x04, 0x43, 0x51, 0x37, 0x3b, 0x5e, 0x4e, 0x38, 0x7e, 0xc1, 0xb5, 0xa4, 0xae, 0x74, 0x1a,
-	0x46, 0xb2, 0xae, 0x71, 0xd6, 0x3b, 0x38, 0x93, 0x9c, 0x75, 0x73, 0x47, 0x34, 0xf9, 0x3b, 0x82,
-	0x8b, 0x8d, 0xf7, 0x25, 0xce, 0xc4, 0xaf, 0xb3, 0xc9, 0xa5, 0xae, 0x66, 0x3b, 0x09, 0x21, 0x31,
-	0x6f, 0x71, 0xcc, 0x05, 0x3c, 0x1f, 0x0b, 0xb3, 0xf1, 0x83, 0x9f, 0x65, 0x97, 0xf7, 0x8f, 0x34,
-	0x74, 0x70, 0xa4, 0xa1, 0xc3, 0x23, 0x0d, 0xbd, 0x3d, 0xd6, 0x52, 0x07, 0xc7, 0x5a, 0xea, 0xdb,
-	0xb1, 0x96, 0x7a, 0x3c, 0x15, 0x76, 0x7f, 0x11, 0x11, 0xd2, 0xdf, 0xf3, 0x08, 0xcb, 0xf7, 0xf1,
-	0x7f, 0x0e, 0xb3, 0x7f, 0x03, 0x00, 0x00, 0xff, 0xff, 0x54, 0x2c, 0x3b, 0x0d, 0x80, 0x0d, 0x00,
-	0x00,
+	// 942 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x98, 0xcf, 0x6f, 0xd3, 0x48,
+	0x14, 0xc7, 0x33, 0x4e, 0xb7, 0x87, 0xa9, 0xb6, 0x5b, 0x4d, 0xbb, 0x55, 0xe5, 0x6d, 0xb3, 0x5d,
+	0x77, 0xb7, 0x5b, 0x51, 0xd5, 0x56, 0xd3, 0xaa, 0x54, 0x55, 0xd5, 0x92, 0xf4, 0x17, 0x01, 0x21,
+	0xb5, 0x81, 0x03, 0xe2, 0x40, 0x71, 0x12, 0x93, 0x9a, 0x3a, 0x1e, 0x37, 0x76, 0x2a, 0xca, 0x8f,
+	0x0b, 0x7f, 0x01, 0x12, 0x07, 0x8e, 0xfc, 0x0b, 0x08, 0xf1, 0x07, 0xf4, 0xd8, 0x63, 0x11, 0x17,
+	0xb8, 0xa0, 0xaa, 0xe5, 0xc0, 0x0d, 0x38, 0x01, 0x37, 0x94, 0xf1, 0x04, 0x70, 0x3c, 0x76, 0x6c,
+	0xc7, 0xb9, 0x45, 0x99, 0x79, 0xef, 0xcd, 0xe7, 0xfb, 0xde, 0x3c, 0x3f, 0x1b, 0x8e, 0x54, 0x54,
+	0x0b, 0x17, 0x34, 0x5c, 0xdc, 0x2d, 0xee, 0xc8, 0xaa, 0x5e, 0x52, 0xf6, 0xa5, 0xbd, 0x9a, 0x52,
+	0x3d, 0x10, 0x8d, 0x2a, 0xb6, 0x30, 0x1a, 0x73, 0x2d, 0x8b, 0xae, 0x7f, 0xf8, 0x81, 0x32, 0x2e,
+	0x63, 0xb2, 0x5f, 0xaa, 0xff, 0xb2, 0x4d, 0xf9, 0xe1, 0x32, 0xc6, 0x65, 0x4d, 0x91, 0x64, 0x43,
+	0x95, 0x64, 0x5d, 0xc7, 0x96, 0x6c, 0xa9, 0x58, 0x37, 0xe9, 0xea, 0xb9, 0x22, 0x36, 0x2b, 0xd8,
+	0x94, 0x0a, 0xb2, 0xa9, 0xd8, 0x11, 0xa5, 0xfd, 0xe9, 0x82, 0x62, 0xc9, 0xd3, 0x92, 0x21, 0x97,
+	0x55, 0x9d, 0x6c, 0xa6, 0x7b, 0x53, 0xee, 0x33, 0x1a, 0x72, 0x55, 0xae, 0x34, 0x7c, 0x4d, 0xb9,
+	0xd7, 0x4b, 0xaa, 0x59, 0xc4, 0x35, 0xdd, 0xda, 0xb6, 0xf0, 0xae, 0xa2, 0x6f, 0x9b, 0x96, 0x6c,
+	0xd5, 0x1a, 0xdb, 0x25, 0xf7, 0xf6, 0x8a, 0x52, 0x29, 0x28, 0x55, 0x73, 0x47, 0x35, 0x58, 0x06,
+	0xe3, 0xad, 0xfc, 0xd3, 0x7d, 0x13, 0xad, 0x1d, 0xdb, 0x3b, 0x85, 0x01, 0x88, 0xb6, 0xea, 0xcc,
+	0x9b, 0x04, 0x23, 0xaf, 0xec, 0xd5, 0x14, 0xd3, 0x12, 0x6e, 0xc1, 0x7e, 0xc7, 0xbf, 0xa6, 0x81,
+	0x75, 0x53, 0x41, 0x39, 0xd8, 0x6d, 0xe3, 0x0e, 0x81, 0x51, 0x30, 0xd1, 0x93, 0x9e, 0x14, 0x03,
+	0x24, 0x45, 0xb4, 0x9d, 0x64, 0xbb, 0x8e, 0xde, 0xfd, 0x9d, 0xc8, 0x53, 0x07, 0x42, 0x09, 0xf2,
+	0x24, 0xc2, 0x2a, 0x3d, 0xfe, 0xb5, 0xfa, 0x99, 0x1a, 0xf1, 0xd1, 0x3a, 0x84, 0x3f, 0xb5, 0xa7,
+	0xc1, 0xc6, 0x45, 0x3b, 0x51, 0x62, 0x3d, 0x51, 0xa2, 0x5d, 0x1a, 0x34, 0x51, 0xe2, 0xa6, 0x5c,
+	0x56, 0xa8, 0x6d, 0xfe, 0x17, 0x4b, 0xe1, 0x10, 0xc0, 0xbf, 0x98, 0x61, 0x28, 0xd0, 0x75, 0xf8,
+	0xbb, 0x63, 0x65, 0x08, 0x8c, 0x26, 0x27, 0x7a, 0xd2, 0xe9, 0x40, 0x5c, 0x0e, 0xcb, 0xbc, 0xd3,
+	0x11, 0xda, 0x70, 0x10, 0x70, 0x84, 0xe0, 0xff, 0x96, 0x04, 0xf6, 0xb1, 0x1c, 0x08, 0xb3, 0x50,
+	0x20, 0x04, 0x1b, 0x8a, 0xe5, 0x88, 0x70, 0x95, 0xd4, 0x45, 0x43, 0xb0, 0x5e, 0xc8, 0xa9, 0x25,
+	0x22, 0x54, 0x57, 0x9e, 0x53, 0x4b, 0xc2, 0x53, 0x00, 0xc7, 0x7c, 0xcd, 0xa8, 0x00, 0x06, 0xec,
+	0x67, 0x2c, 0x53, 0xc5, 0xe7, 0xc3, 0xcb, 0x60, 0xdb, 0xd3, 0x5c, 0xb3, 0x5c, 0x0b, 0x1a, 0xe5,
+	0xc9, 0x68, 0x9a, 0x0f, 0x4f, 0x5c, 0x05, 0x70, 0xd2, 0xd0, 0xc1, 0x2b, 0x5c, 0x2b, 0x1d, 0x92,
+	0x1d, 0xd2, 0x21, 0xbe, 0x02, 0xb9, 0x07, 0x47, 0xdd, 0x25, 0x6e, 0x07, 0xd9, 0xf2, 0x28, 0x8f,
+	0x26, 0x79, 0xb9, 0xc8, 0xf2, 0xbe, 0xe0, 0xe0, 0x3f, 0x3e, 0xc1, 0xbd, 0x6f, 0x19, 0x88, 0xe7,
+	0x96, 0xdd, 0x61, 0xa7, 0x8d, 0x6b, 0x2f, 0x6d, 0x41, 0x12, 0x96, 0x8c, 0x9e, 0xb0, 0xdb, 0x70,
+	0x98, 0x68, 0x76, 0xe5, 0x47, 0x47, 0xee, 0x4c, 0xf3, 0x3b, 0x02, 0x70, 0xc4, 0x23, 0x10, 0x4d,
+	0xcc, 0x4d, 0xf8, 0x47, 0xd3, 0x1a, 0xad, 0xf8, 0xd9, 0x40, 0xd2, 0x35, 0xd9, 0xe6, 0x9b, 0x9d,
+	0xc5, 0x57, 0xe3, 0x73, 0xf0, 0xdf, 0x46, 0x37, 0x6b, 0x8a, 0xe1, 0xdf, 0x06, 0x9f, 0x01, 0xf8,
+	0x5f, 0x0b, 0x43, 0x2a, 0xc5, 0x3e, 0xfc, 0x93, 0xb9, 0x81, 0xea, 0xbf, 0x10, 0x45, 0x10, 0x47,
+	0x13, 0x60, 0xbb, 0x17, 0x74, 0x4a, 0x96, 0xd1, 0x34, 0x5f, 0xb2, 0xb8, 0x8a, 0xe2, 0x43, 0x43,
+	0x11, 0xef, 0x80, 0xad, 0x15, 0x49, 0x76, 0x50, 0x91, 0xf8, 0x8a, 0xe6, 0x01, 0x7d, 0xd2, 0x30,
+	0xc3, 0x74, 0xbc, 0x35, 0x1e, 0x72, 0xf4, 0xc9, 0xe3, 0x15, 0xde, 0xef, 0x0e, 0x82, 0xf8, 0xee,
+	0xa0, 0xe1, 0x95, 0x46, 0xae, 0xdd, 0x34, 0x06, 0x4b, 0x60, 0xf4, 0x46, 0x99, 0x7e, 0xd9, 0x07,
+	0x7f, 0x23, 0x12, 0xa2, 0xe7, 0x00, 0x76, 0xdb, 0x63, 0x24, 0x3a, 0x1f, 0xe8, 0xc0, 0xee, 0x99,
+	0x96, 0x9f, 0x0f, 0x6f, 0x68, 0x9f, 0x49, 0x98, 0x79, 0xf4, 0xfa, 0xfd, 0x13, 0x6e, 0x0a, 0x4d,
+	0xb2, 0xe6, 0x75, 0x8f, 0x17, 0x02, 0xf4, 0x0a, 0xc0, 0x5e, 0xe7, 0xd4, 0x89, 0x96, 0x83, 0x9f,
+	0x80, 0x39, 0x16, 0xf3, 0x17, 0xa2, 0x3b, 0xa0, 0x28, 0x8b, 0x04, 0x65, 0x0e, 0xcd, 0x06, 0x42,
+	0x71, 0xbe, 0x5b, 0x98, 0xe8, 0x33, 0x80, 0xec, 0x47, 0x63, 0xf0, 0x73, 0xf9, 0x8e, 0xb1, 0xfc,
+	0xc5, 0xf6, 0x1d, 0x51, 0xd0, 0x0d, 0x02, 0x9a, 0x41, 0xcb, 0x11, 0x40, 0xe9, 0x3b, 0x97, 0x74,
+	0x5f, 0x2d, 0x3d, 0x44, 0x1f, 0x01, 0x1c, 0x64, 0x04, 0xca, 0x68, 0x5a, 0x18, 0x6c, 0xdf, 0x69,
+	0x37, 0x0c, 0xb6, 0xff, 0x1c, 0x2b, 0x64, 0x09, 0xf6, 0x22, 0x5a, 0x88, 0x8e, 0x8d, 0x3e, 0x01,
+	0x38, 0xc0, 0x9a, 0xe7, 0xd0, 0x5a, 0xc4, 0xf2, 0x73, 0x76, 0x5c, 0x7e, 0xbd, 0x5d, 0x37, 0x94,
+	0x35, 0x47, 0x58, 0x57, 0x50, 0x26, 0x3a, 0xeb, 0xf6, 0x9e, 0x9d, 0xe4, 0xb7, 0x00, 0xf6, 0x35,
+	0x4f, 0x49, 0x28, 0x13, 0xfc, 0x9c, 0x1e, 0xa3, 0x1c, 0x9f, 0x6d, 0xc7, 0x05, 0xc5, 0x5c, 0x22,
+	0x98, 0xf3, 0x68, 0x2e, 0x10, 0x66, 0xf3, 0x6b, 0xbe, 0x89, 0xbe, 0x01, 0x8f, 0x27, 0x00, 0xca,
+	0x85, 0xba, 0x6d, 0x7e, 0xe3, 0x09, 0x7f, 0x29, 0x0e, 0x57, 0x91, 0xf2, 0xea, 0xf1, 0xc1, 0xc4,
+	0xce, 0xeb, 0x17, 0x00, 0x87, 0x98, 0xc1, 0xea, 0xd7, 0x37, 0x17, 0xea, 0xd6, 0xc5, 0x85, 0xdf,
+	0x6a, 0xee, 0x12, 0x56, 0x09, 0xfe, 0x12, 0x5a, 0x6c, 0x07, 0x1f, 0x7d, 0x05, 0x70, 0x90, 0x3d,
+	0x79, 0x84, 0x69, 0x5b, 0xbe, 0xa3, 0x53, 0x98, 0xb6, 0xe5, 0x3f, 0x04, 0x09, 0x97, 0x09, 0xf3,
+	0x1a, 0x5a, 0x69, 0x87, 0x99, 0x5e, 0xe6, 0xec, 0xda, 0xd1, 0x69, 0x0a, 0x1c, 0x9f, 0xa6, 0xc0,
+	0xc9, 0x69, 0x0a, 0x3c, 0x3e, 0x4b, 0x25, 0x8e, 0xcf, 0x52, 0x89, 0x37, 0x67, 0xa9, 0xc4, 0x8d,
+	0x49, 0xb7, 0xaf, 0xbb, 0x0c, 0xff, 0xd6, 0x81, 0xa1, 0x98, 0x85, 0x6e, 0xf2, 0x81, 0x6c, 0xe6,
+	0x7b, 0x00, 0x00, 0x00, 0xff, 0xff, 0x62, 0x0e, 0x33, 0x6e, 0x98, 0x14, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -703,6 +1019,12 @@ type QueryClient interface {
 	DiscountTokenStatusQ(ctx context.Context, in *QueryDiscountTokenStatusQRequest, opts ...grpc.CallOption) (*QueryDiscountTokenStatusQResponse, error)
 	// Queries a list of MembershipTokens items.
 	MembershipTokens(ctx context.Context, in *QueryMembershipTokensRequest, opts ...grpc.CallOption) (*QueryMembershipTokensResponse, error)
+	// Queries a MembershipTokenStatus by id.
+	MembershipTokenStatus(ctx context.Context, in *QueryGetMembershipTokenStatusRequest, opts ...grpc.CallOption) (*QueryGetMembershipTokenStatusResponse, error)
+	// Queries a list of MembershipTokenStatus items.
+	MembershipTokenStatusAll(ctx context.Context, in *QueryAllMembershipTokenStatusRequest, opts ...grpc.CallOption) (*QueryAllMembershipTokenStatusResponse, error)
+	// Queries a list of MembershipTokenStatusQ items.
+	MembershipTokenStatusQ(ctx context.Context, in *QueryMembershipTokenStatusQRequest, opts ...grpc.CallOption) (*QueryMembershipTokenStatusQResponse, error)
 }
 
 type queryClient struct {
@@ -767,6 +1089,33 @@ func (c *queryClient) MembershipTokens(ctx context.Context, in *QueryMembershipT
 	return out, nil
 }
 
+func (c *queryClient) MembershipTokenStatus(ctx context.Context, in *QueryGetMembershipTokenStatusRequest, opts ...grpc.CallOption) (*QueryGetMembershipTokenStatusResponse, error) {
+	out := new(QueryGetMembershipTokenStatusResponse)
+	err := c.cc.Invoke(ctx, "/mitoblockchaindev.mitoblockchaindev.Query/MembershipTokenStatus", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) MembershipTokenStatusAll(ctx context.Context, in *QueryAllMembershipTokenStatusRequest, opts ...grpc.CallOption) (*QueryAllMembershipTokenStatusResponse, error) {
+	out := new(QueryAllMembershipTokenStatusResponse)
+	err := c.cc.Invoke(ctx, "/mitoblockchaindev.mitoblockchaindev.Query/MembershipTokenStatusAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) MembershipTokenStatusQ(ctx context.Context, in *QueryMembershipTokenStatusQRequest, opts ...grpc.CallOption) (*QueryMembershipTokenStatusQResponse, error) {
+	out := new(QueryMembershipTokenStatusQResponse)
+	err := c.cc.Invoke(ctx, "/mitoblockchaindev.mitoblockchaindev.Query/MembershipTokenStatusQ", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	// Parameters queries the parameters of the module.
@@ -781,6 +1130,12 @@ type QueryServer interface {
 	DiscountTokenStatusQ(context.Context, *QueryDiscountTokenStatusQRequest) (*QueryDiscountTokenStatusQResponse, error)
 	// Queries a list of MembershipTokens items.
 	MembershipTokens(context.Context, *QueryMembershipTokensRequest) (*QueryMembershipTokensResponse, error)
+	// Queries a MembershipTokenStatus by id.
+	MembershipTokenStatus(context.Context, *QueryGetMembershipTokenStatusRequest) (*QueryGetMembershipTokenStatusResponse, error)
+	// Queries a list of MembershipTokenStatus items.
+	MembershipTokenStatusAll(context.Context, *QueryAllMembershipTokenStatusRequest) (*QueryAllMembershipTokenStatusResponse, error)
+	// Queries a list of MembershipTokenStatusQ items.
+	MembershipTokenStatusQ(context.Context, *QueryMembershipTokenStatusQRequest) (*QueryMembershipTokenStatusQResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -804,6 +1159,15 @@ func (*UnimplementedQueryServer) DiscountTokenStatusQ(ctx context.Context, req *
 }
 func (*UnimplementedQueryServer) MembershipTokens(ctx context.Context, req *QueryMembershipTokensRequest) (*QueryMembershipTokensResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method MembershipTokens not implemented")
+}
+func (*UnimplementedQueryServer) MembershipTokenStatus(ctx context.Context, req *QueryGetMembershipTokenStatusRequest) (*QueryGetMembershipTokenStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MembershipTokenStatus not implemented")
+}
+func (*UnimplementedQueryServer) MembershipTokenStatusAll(ctx context.Context, req *QueryAllMembershipTokenStatusRequest) (*QueryAllMembershipTokenStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MembershipTokenStatusAll not implemented")
+}
+func (*UnimplementedQueryServer) MembershipTokenStatusQ(ctx context.Context, req *QueryMembershipTokenStatusQRequest) (*QueryMembershipTokenStatusQResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MembershipTokenStatusQ not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -918,6 +1282,60 @@ func _Query_MembershipTokens_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_MembershipTokenStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetMembershipTokenStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).MembershipTokenStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/mitoblockchaindev.mitoblockchaindev.Query/MembershipTokenStatus",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).MembershipTokenStatus(ctx, req.(*QueryGetMembershipTokenStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_MembershipTokenStatusAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryAllMembershipTokenStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).MembershipTokenStatusAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/mitoblockchaindev.mitoblockchaindev.Query/MembershipTokenStatusAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).MembershipTokenStatusAll(ctx, req.(*QueryAllMembershipTokenStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_MembershipTokenStatusQ_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryMembershipTokenStatusQRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).MembershipTokenStatusQ(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/mitoblockchaindev.mitoblockchaindev.Query/MembershipTokenStatusQ",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).MembershipTokenStatusQ(ctx, req.(*QueryMembershipTokenStatusQRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "mitoblockchaindev.mitoblockchaindev.Query",
 	HandlerType: (*QueryServer)(nil),
@@ -945,6 +1363,18 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "MembershipTokens",
 			Handler:    _Query_MembershipTokens_Handler,
+		},
+		{
+			MethodName: "MembershipTokenStatus",
+			Handler:    _Query_MembershipTokenStatus_Handler,
+		},
+		{
+			MethodName: "MembershipTokenStatusAll",
+			Handler:    _Query_MembershipTokenStatusAll_Handler,
+		},
+		{
+			MethodName: "MembershipTokenStatusQ",
+			Handler:    _Query_MembershipTokenStatusQ_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1421,6 +1851,252 @@ func (m *QueryMembershipTokensResponse) MarshalToSizedBuffer(dAtA []byte) (int, 
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryGetMembershipTokenStatusRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetMembershipTokenStatusRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetMembershipTokenStatusRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintQuery(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetMembershipTokenStatusResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetMembershipTokenStatusResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetMembershipTokenStatusResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	{
+		size, err := m.MembershipTokenStatus.MarshalToSizedBuffer(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = encodeVarintQuery(dAtA, i, uint64(size))
+	}
+	i--
+	dAtA[i] = 0xa
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllMembershipTokenStatusRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllMembershipTokenStatusRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllMembershipTokenStatusRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllMembershipTokenStatusResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllMembershipTokenStatusResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllMembershipTokenStatusResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.MembershipTokenStatus) > 0 {
+		for iNdEx := len(m.MembershipTokenStatus) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.MembershipTokenStatus[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryMembershipTokenStatusQRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryMembershipTokenStatusQRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryMembershipTokenStatusQRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if m.Id != 0 {
+		i = encodeVarintQuery(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryMembershipTokenStatusQResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryMembershipTokenStatusQResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryMembershipTokenStatusQResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.MembershipTokenStatus) > 0 {
+		for iNdEx := len(m.MembershipTokenStatus) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.MembershipTokenStatus[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0x12
+		}
+	}
+	if m.MembershipToken != nil {
+		{
+			size, err := m.MembershipToken.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -1599,6 +2275,100 @@ func (m *QueryMembershipTokensResponse) Size() (n int) {
 	_ = l
 	if len(m.MembershipToken) > 0 {
 		for _, e := range m.MembershipToken {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetMembershipTokenStatusRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovQuery(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *QueryGetMembershipTokenStatusResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = m.MembershipTokenStatus.Size()
+	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryAllMembershipTokenStatusRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryAllMembershipTokenStatusResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.MembershipTokenStatus) > 0 {
+		for _, e := range m.MembershipTokenStatus {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryMembershipTokenStatusQRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovQuery(uint64(m.Id))
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryMembershipTokenStatusQResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.MembershipToken != nil {
+		l = m.MembershipToken.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	if len(m.MembershipTokenStatus) > 0 {
+		for _, e := range m.MembershipTokenStatus {
 			l = e.Size()
 			n += 1 + l + sovQuery(uint64(l))
 		}
@@ -2724,6 +3494,625 @@ func (m *QueryMembershipTokensResponse) Unmarshal(dAtA []byte) error {
 			}
 			iNdEx = postIndex
 		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetMembershipTokenStatusRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetMembershipTokenStatusRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetMembershipTokenStatusRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetMembershipTokenStatusResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetMembershipTokenStatusResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetMembershipTokenStatusResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MembershipTokenStatus", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.MembershipTokenStatus.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllMembershipTokenStatusRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllMembershipTokenStatusRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllMembershipTokenStatusRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllMembershipTokenStatusResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllMembershipTokenStatusResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllMembershipTokenStatusResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MembershipTokenStatus", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.MembershipTokenStatus = append(m.MembershipTokenStatus, MembershipTokenStatus{})
+			if err := m.MembershipTokenStatus[len(m.MembershipTokenStatus)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryMembershipTokenStatusQRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryMembershipTokenStatusQRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryMembershipTokenStatusQRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryMembershipTokenStatusQResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryMembershipTokenStatusQResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryMembershipTokenStatusQResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MembershipToken", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.MembershipToken == nil {
+				m.MembershipToken = &MembershipToken{}
+			}
+			if err := m.MembershipToken.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MembershipTokenStatus", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.MembershipTokenStatus = append(m.MembershipTokenStatus, &MembershipTokenStatus{})
+			if err := m.MembershipTokenStatus[len(m.MembershipTokenStatus)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
 			}
