@@ -33,6 +33,7 @@ func GetTxCmd() *cobra.Command {
 	cmd.AddCommand(CmdCreateDiscountToken())
 	cmd.AddCommand(CmdCreateDiscountTokenStatus())
 	cmd.AddCommand(CmdDeleteDiscountTokenStatus())
+	cmd.AddCommand(CmdCreateMembershipToken())
 	// this line is used by starport scaffolding # 1
 
 	return cmd
