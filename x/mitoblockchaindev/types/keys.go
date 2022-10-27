@@ -30,3 +30,8 @@ const (
 	DiscountTokenStatusKey      = "DiscountTokenStatus/value/"
 	DiscountTokenStatusCountKey = "DiscountTokenStatus/count/"
 )
+
+const (
+	MembershipTokenStatusKey      = "MembershipTokenStatus/value/"
+	MembershipTokenStatusCountKey = "MembershipTokenStatus/count/"
+)
