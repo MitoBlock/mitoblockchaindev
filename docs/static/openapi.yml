@@ -75575,6 +75575,12 @@ definitions:
       id:
         type: string
         format: uint64
+  mitoblockchaindev.mitoblockchaindev.MsgCreateMembershipTokenResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uint64
   mitoblockchaindev.mitoblockchaindev.MsgDeleteDiscountTokenStatusResponse:
     type: object
     properties:

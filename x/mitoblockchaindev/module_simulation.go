@@ -36,6 +36,10 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgDeleteDiscountTokenStatus int = 100
 
+	opWeightMsgCreateMembershipToken = "op_weight_msg_create_membership_token"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateMembershipToken int = 100
+
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -101,6 +105,17 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 	operations = append(operations, simulation.NewWeightedOperation(
 		weightMsgDeleteDiscountTokenStatus,
 		mitoblockchaindevsimulation.SimulateMsgDeleteDiscountTokenStatus(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgCreateMembershipToken int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateMembershipToken, &weightMsgCreateMembershipToken, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateMembershipToken = defaultWeightMsgCreateMembershipToken
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateMembershipToken,
+		mitoblockchaindevsimulation.SimulateMsgCreateMembershipToken(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	// this line is used by starport scaffolding # simapp/module/operation
