@@ -21,6 +21,7 @@ func (k msgServer) CreateMembershipToken(goCtx context.Context, msg *types.MsgCr
 		MembershipDuration: msg.MembershipDuration,
 		EligibleCompanies:  msg.EligibleCompanies,
 		ExpiryDate:         msg.ExpiryDate,
+		CreatedAt:          ctx.BlockHeight(),
 	}
 
 	// Add a Membership token to the store and get back the ID

@@ -67,3 +67,18 @@ func (k Keeper) AppendMembershipToken(ctx sdk.Context, membershipToken types.Mem
 	k.SetMembershipTokenCount(ctx, count+1)
 	return count
 }
+
+func (k Keeper) GetMembershipToken(ctx sdk.Context, id uint64) (val types.MembershipToken, found bool) {
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.MembershipTokenKey))
+
+	bz := make([]byte, 8)
+	binary.BigEndian.PutUint64(bz, id)
+
+	b := store.Get(bz)
+	if b == nil {
+		return val, false
+	}
+
+	k.cdc.MustUnmarshal(b, &val)
+	return val, true
+}

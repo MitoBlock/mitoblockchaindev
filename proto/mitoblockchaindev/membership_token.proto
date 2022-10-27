@@ -14,4 +14,5 @@ message MembershipToken {
   string membershipDuration = 7;
   string eligibleCompanies = 8;
   string expiryDate = 9;
+  int64  createdAt = 10;
 }

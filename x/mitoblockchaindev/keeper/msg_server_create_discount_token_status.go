@@ -31,7 +31,7 @@ func (k msgServer) CreateDiscountTokenStatus(goCtx context.Context, msg *types.M
 
 	// Check if the status is older than the token. If more than 100 blocks, then return error.
 	if discountTokenStatus.CreatedAt > discountToken.CreatedAt+1000000 {
-		return nil, sdkerrors.Wrapf(types.ErrDiscountTokenStatusOld, "status created at %d is older than token created at %d", discountTokenStatus.CreatedAt, discountToken.CreatedAt)
+		return nil, sdkerrors.Wrapf(types.ErrTokenStatusOld, "status created at %d is older than token created at %d", discountTokenStatus.CreatedAt, discountToken.CreatedAt)
 	}
 
 	id := k.AppendDiscountTokenStatus(ctx, discountTokenStatus)
