@@ -16,6 +16,10 @@ const (
 	// Keep track of the index of discount tokens
 	DiscountTokenKey      = "DiscountToken/value/"
 	DiscountTokenCountKey = "DiscountToken/count/"
+
+	// Keep track of the index of membership tokens
+	MembershipTokenKey      = "MembershipToken/value/"
+	MembershipTokenCountKey = "MembershipToken/count/"
 )
 
 func KeyPrefix(p string) []byte {
@@ -25,4 +29,9 @@ func KeyPrefix(p string) []byte {
 const (
 	DiscountTokenStatusKey      = "DiscountTokenStatus/value/"
 	DiscountTokenStatusCountKey = "DiscountTokenStatus/count/"
+)
+
+const (
+	MembershipTokenStatusKey      = "MembershipTokenStatus/value/"
+	MembershipTokenStatusCountKey = "MembershipTokenStatus/count/"
 )

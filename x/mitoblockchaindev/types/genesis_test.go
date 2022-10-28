@@ -31,6 +31,15 @@ func TestGenesisState_Validate(t *testing.T) {
 					},
 				},
 				DiscountTokenStatusCount: 2,
+				MembershipTokenStatusList: []types.MembershipTokenStatus{
+					{
+						Id: 0,
+					},
+					{
+						Id: 1,
+					},
+				},
+				MembershipTokenStatusCount: 2,
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
@@ -58,6 +67,32 @@ func TestGenesisState_Validate(t *testing.T) {
 					},
 				},
 				DiscountTokenStatusCount: 0,
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated membershipTokenStatus",
+			genState: &types.GenesisState{
+				MembershipTokenStatusList: []types.MembershipTokenStatus{
+					{
+						Id: 0,
+					},
+					{
+						Id: 0,
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "invalid membershipTokenStatus count",
+			genState: &types.GenesisState{
+				MembershipTokenStatusList: []types.MembershipTokenStatus{
+					{
+						Id: 1,
+					},
+				},
+				MembershipTokenStatusCount: 0,
 			},
 			valid: false,
 		},
